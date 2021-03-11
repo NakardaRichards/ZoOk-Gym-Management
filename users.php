@@ -1,7 +1,8 @@
 <?php
 
-session_start();
-$_SESSION['success'] = "";
+
+
+
 
 
 class Users
@@ -65,6 +66,24 @@ class Users
             header("Location:home.php");
         } else {
             echo "Login failed!";
+        }
+    }
+
+    public function admin($post)
+    {
+
+
+
+        $email = $this->con->real_escape_string($_POST['email']);
+        $password = $this->con->real_escape_string($_POST['pass']);
+
+        $query = ("SELECT * FROM users WHERE email='$email' AND pass = '$password'");
+        $result = $this->con->query($query);
+        if ($email == 'nakardarichards3@gmail.com' and $password == 'cenation2') {
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                header("Location:admin.php");
+            }
         }
     }
 }

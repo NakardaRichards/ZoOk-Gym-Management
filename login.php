@@ -1,5 +1,6 @@
 <?php
-// session_start();
+session_start();
+session_id();
 include 'users.php';
 
 $usersObj = new Users();
@@ -8,6 +9,18 @@ $usersObj = new Users();
 if (isset($_POST['submit'])) {
     $usersObj->loginData($_POST);
 }
+
+
+if (isset($_POST['submit'])) {
+    $usersObj->admin($_POST);
+}
+
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
