@@ -18,6 +18,7 @@ class Users
 
 
 
+
     public function
     __construct()
     {
@@ -41,7 +42,7 @@ class Users
         $query = "INSERT INTO users(username,email,pass) VALUES('$username','$email','$password')";
         $sql = $this->con->query($query);
         if ($sql == true) {
-            header("Location:login.php");
+            header("Location:home.php");
         } else {
             echo "Failed to signup!";
         }
@@ -63,12 +64,32 @@ class Users
         $result = $this->con->query($query);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
+            $user = mysqli_fetch_assoc($result);
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['success']  = "You are now logged in";
+
             header("Location:home.php");
         } else {
             echo "Login failed!";
         }
     }
 
+    public function displayUsername($post)
+    {
+
+
+
+        $email = $this->con->real_escape_string($_POST['email']);
+        $query = ("SELECT email FROM users WHERE email = '$email' ");
+
+
+        $result = $this->con->query($query);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+
+            return $row;
+        }
+    }
     public function admin($post)
     {
 
@@ -82,6 +103,7 @@ class Users
         if ($email == 'nakardarichards3@gmail.com' and $password == 'cenation2') {
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
+                $_SESSION['success']  = "You are now logged in sir";
                 header("Location:admin.php");
             }
         }

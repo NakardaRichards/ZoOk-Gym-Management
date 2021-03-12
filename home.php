@@ -7,14 +7,25 @@ session_start([
 ]);
 
 session_id();
+$_SESSION['id'] = 1;
 include 'users.php';
 
 $usersObj = new Users();
 
 
-$_SESSION['favcolor'] = 'green';
-$_SESSION['username']   = 'username';
-$_SESSION['time']     = time();
+
+if (isset($_POST['submit'])) {
+    $usersObj->displayUsername($_POST);
+}
+
+
+
+
+
+
+
+$_SESSION['logged_in'] = time();
+
 
 
 
@@ -35,11 +46,16 @@ $_SESSION['time']     = time();
     <?php
 
 
-    echo (session_id());
+    echo "Session ID ", (session_id());
     echo "<br></br>";
-    echo date('Y m d H:i:s', $_SESSION['time']);
+
+
+
+    echo  date('Y m d H:i:s', $_SESSION['logged_in']);
+
     echo "<br></br>";
-    echo "Welcome ", $_SESSION['username'];
+    echo "Welcome", $email;
+
 
     ?>
 
