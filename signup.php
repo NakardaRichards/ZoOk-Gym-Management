@@ -1,5 +1,10 @@
 <?php
-session_start();
+
+session_start([
+    'cookie_lifetime' => 86400,
+    'read_and_close'  => true,
+]);
+
 session_id();
 
 include 'users.php';
@@ -10,7 +15,11 @@ $usersObj = new Users();
 if (isset($_POST['submit'])) {
     $usersObj->signupData($_POST);
 }
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">

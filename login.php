@@ -1,5 +1,10 @@
 <?php
-session_start();
+
+session_start([
+    'cookie_lifetime' => 86400,
+    'read_and_close'  => true,
+]);
+
 session_id();
 include 'users.php';
 
@@ -12,9 +17,11 @@ if (isset($_POST['submit'])) {
 }
 
 
+
 if (isset($_POST['submit'])) {
     $usersObj->admin($_POST);
 }
+
 
 
 

@@ -42,6 +42,7 @@ class Users
         $query = "INSERT INTO users(username,email,pass) VALUES('$username','$email','$password')";
         $sql = $this->con->query($query);
         if ($sql == true) {
+
             header("Location:home.php");
         } else {
             echo "Failed to signup!";
@@ -64,9 +65,12 @@ class Users
         $result = $this->con->query($query);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $user = mysqli_fetch_assoc($result);
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['success']  = "You are now logged in";
+            $_SESSION['logged_in_user_id'] = 1000;
+
+
+
+
+            $_SESSION['email'] = $email;
 
             header("Location:home.php");
         } else {
@@ -74,22 +78,22 @@ class Users
         }
     }
 
-    public function displayUsername($post)
-    {
+    // public function displayUsername($post)
+    // {
 
 
 
-        $email = $this->con->real_escape_string($_POST['email']);
-        $query = ("SELECT email FROM users WHERE email = '$email' ");
+    //     $username = $this->con->real_escape_string($_POST['username']);
 
+    //     $query = "SELECT username FROM users WHERE username = '"  . $_SESSION['username'] . "'";
 
-        $result = $this->con->query($query);
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-
-            return $row;
-        }
-    }
+    //     $result = $this->con->query($query);
+    //     if ($result->num_rows > 0) {
+    //         $row = $result->fetch_assoc();
+    //         echo "Hello",  $row['name'];
+    //         return $row;
+    //     }
+    // }
     public function admin($post)
     {
 
@@ -100,7 +104,7 @@ class Users
 
         $query = ("SELECT * FROM users WHERE email='$email' AND pass = '$password'");
         $result = $this->con->query($query);
-        if ($email == 'nakardarichards3@gmail.com' and $password == 'cenation2') {
+        if ($email == 'superman@gmail.com' and $password == 'supe') {
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $_SESSION['success']  = "You are now logged in sir";
