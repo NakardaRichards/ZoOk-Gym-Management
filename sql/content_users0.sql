@@ -23,11 +23,10 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` int(10) DEFAULT NULL,
-  `username` varchar(50) NOT NULL,
+  `username` varchar(50) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `pass` varchar(255) NOT NULL,
-  UNIQUE KEY `id` (`id`)
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -37,7 +36,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (NULL,'Nakarda ','nakardarichards2@gmail.com','cenation'),(NULL,'John Cena','johncena3@gmail.com','cenation'),(NULL,'Randy Orton ','rko@gmail.com','rko'),(NULL,'John Doe','jdoe@gmail.com','jdoe'),(NULL,'Rock','rock@gmail.com','rock'),(NULL,'Rappy ','rapungel@gmail.com','rappy2'),(NULL,'Ralph Ziggler','heelziggler@gmail.com','heel'),(NULL,'John Wick','wick@gmail.com','jwick'),(NULL,'Thor','thor@gmail.com','thor');
+INSERT INTO `users` VALUES ('Bruce Banner','hulkout@gmail.com','strongestavenger');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-14  4:47:22
+-- Dump completed on 2021-03-14  5:01:52
