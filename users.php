@@ -65,12 +65,16 @@ class Users
         $result = $this->con->query($query);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
+            $_SESSION['login_user'] = $email;
+
+            echo "Welcome", $_SESSION['login_user'];
+
             $_SESSION['logged_in_user_id'] = 1000;
 
 
 
 
-            $_SESSION['email'] = $email;
+            // $_SESSION['email'] = $email;
 
             header("Location:home.php");
         } else {
@@ -78,22 +82,30 @@ class Users
         }
     }
 
-    // public function displayUsername($post)
-    // {
+    public function displayUsername($post)
+    {
 
 
 
-    //     $username = $this->con->real_escape_string($_POST['username']);
+        $email = $this->con->real_escape_string($_POST['email']);
+        $password = $this->con->real_escape_string($_POST['pass']);
 
-    //     $query = "SELECT username FROM users WHERE username = '"  . $_SESSION['username'] . "'";
+        $query = ("SELECT email, pass FROM users WHERE email='$email' AND pass = '$password'");
 
-    //     $result = $this->con->query($query);
-    //     if ($result->num_rows > 0) {
-    //         $row = $result->fetch_assoc();
-    //         echo "Hello",  $row['name'];
-    //         return $row;
-    //     }
-    // }
+
+        $result = $this->con->query($query);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $_SESSION['login_user'] = $email;
+
+            echo "Welcome", $_SESSION['login_user'];
+
+            // $email = $_POST['login_user'];
+            return $row;
+        }
+    }
+
+
     public function admin($post)
     {
 

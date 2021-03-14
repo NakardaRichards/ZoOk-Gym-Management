@@ -25,7 +25,6 @@ $_SESSION['greetings'] = "Welcome";
 
 
 
-
 $usersObj = new Users();
 
 
@@ -62,7 +61,6 @@ $_SESSION['logged_in'] = time();
 
     echo "<br></br>";
 
-
     echo $_SESSION['greetings'], " ", $_SESSION['logged_in_user_name'];
     // echo $_SESSION['username'];
     echo "<br></br>";
@@ -82,12 +80,18 @@ $_SESSION['logged_in'] = time();
 
 
 
+
     ?>
 
 
 
 
+    <?php
 
+
+    $usersObj->displayUsername($_POST);
+    
+    ?>
 
 </body>
 
