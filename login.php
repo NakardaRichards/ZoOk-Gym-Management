@@ -1,15 +1,16 @@
 <?php
-
+include 'users.php';
 session_start([
     'cookie_lifetime' => 86400,
     'read_and_close'  => true,
 ]);
 
 session_id();
-include 'users.php';
+
 
 
 $usersObj = new Users();
+
 
 
 if (isset($_POST['submit'])) {
@@ -25,11 +26,9 @@ if (isset($_POST['submit'])) {
 
 
 
-
-
-
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,9 +73,9 @@ if (isset($_POST['submit'])) {
                     </span>
 
 
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.com">
-                        <input class="input100" type="text" name="email">
-                        <span class="focus-input100" data-placeholder="Email"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Enter Username">
+                        <input class="input100" type="text" name="username">
+                        <span class="focus-input100" data-placeholder="username"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -125,5 +124,7 @@ if (isset($_POST['submit'])) {
     <script src="js/main.js"></script>
 
 </body>
+
+
 
 </html>

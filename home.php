@@ -1,9 +1,16 @@
 <?php
+include 'users.php';
+
+$usersObj = new Users();
 session_start([
     'cookie_lifetime' => 86400,
     'read_and_close'  => true,
 ]);
-$session = array();
+
+
+
+
+// $session = array();
 foreach ($_SESSION as $k => $v) {
     $session[$k] = $v;
 }
@@ -17,15 +24,12 @@ foreach ($session as $k => $v) {
 }
 session_name();
 
-include 'users.php';
-
 session_status();
 
-$_SESSION['greetings'] = "Welcome";
 
 
 
-$usersObj = new Users();
+
 
 
 
@@ -34,7 +38,10 @@ $_SESSION['logged_in'] = time();
 
 
 
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,8 +68,7 @@ $_SESSION['logged_in'] = time();
 
     echo "<br></br>";
 
-    echo $_SESSION['greetings'], " ", $_SESSION['logged_in_user_name'];
-    // echo $_SESSION['username'];
+
     echo "<br></br>";
 
     echo "Session name: ", session_name();
@@ -70,28 +76,40 @@ $_SESSION['logged_in'] = time();
     echo "Session Status: ", session_status();
     echo "<br></br>";
 
-    $_SESSION['logged_in_user_id'] = '1';
-    $_SESSION['logged_in_user_name'] = 'Nakarda';
 
-    // access session variables
-    echo $_SESSION['logged_in_user_id'];
+
+
+
     echo "<br></br>";
-    // echo $_SESSION['logged_in_user_name'];
-
-
-
 
     ?>
 
 
 
 
-    <?php
+
+    <!-- <?php
+            echo 'Current script owner: ' . get_current_user();
+            ?> -->
+
+    <!-- <?php
+            $username = getenv('USERNAME') ?: getenv('USER');
+            echo $username;
+            ?> -->
 
 
-    $usersObj->displayUsername($_POST);
-    
-    ?>
+
+    <p>
+        Welcome
+        <strong>
+            <?php
+
+
+            echo $_SESSION['username'];
+            ?>
+        </strong>
+
+
 
 </body>
 
