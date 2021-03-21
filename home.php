@@ -1,27 +1,14 @@
 <?php
+
 include 'users.php';
 
 $usersObj = new Users();
-session_start([
-    'cookie_lifetime' => 86400,
-    'read_and_close'  => true,
-]);
 
 
 
-
-// $session = array();
-foreach ($_SESSION as $k => $v) {
-    $session[$k] = $v;
-}
 session_commit();
 
-// create new session and copy variables
-session_id("new session id");
-session_start();
-foreach ($session as $k => $v) {
-    $_SESSION[$k] = $v;
-}
+
 session_name();
 
 session_status();
@@ -40,7 +27,13 @@ $_SESSION['logged_in'] = time();
 
 
 ?>
-
+<?php
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +42,8 @@ $_SESSION['logged_in'] = time();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title> <?php echo $_SESSION['username'];
+            echo "'s" ?> Dashboard</title>
 </head>
 
 <body>
@@ -87,10 +81,10 @@ $_SESSION['logged_in'] = time();
 
 
 
-
-    <!-- <?php
-            echo 'Current script owner: ' . get_current_user();
-            ?> -->
+    <!--  NOT IMPORTANT -->
+    <?php
+    echo 'Current script owner: ' . get_current_user();
+    ?>
 
     <!-- <?php
             $username = getenv('USERNAME') ?: getenv('USER');
@@ -98,16 +92,28 @@ $_SESSION['logged_in'] = time();
             ?> -->
 
 
-
-    <p>
-        Welcome
-        <strong>
-            <?php
+    <!--  NOT IMPORTANT -->
 
 
-            echo $_SESSION['username'];
-            ?>
-        </strong>
+
+
+    <?php if (isset($_SESSION['username'])) : ?>
+        <p>
+            Welcome
+            <strong>
+                <?php echo $_SESSION['username']; ?>
+            </strong>
+        </p>
+        <p>
+            <a href="login.php?logout='1'" style="color: red;">
+                Click here to Logout
+            </a>
+
+        </p>
+
+    <?php endif ?>
+
+
 
 
 
