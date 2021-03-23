@@ -1,1 +1,1 @@
-SELECT * FROM content.users2;
+usersSELECT * FROM content.users2;
