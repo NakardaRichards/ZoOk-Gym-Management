@@ -1,0 +1,18 @@
+.butn1 {
+  background-color: gold;
+  border-radius: 45px;
+  text-align: center;
+  padding: 14px;
+  width: 280px;
+  color: black;
+}
+
+.butn1:hover {
+  background-color: gold;
+  box-shadow: 8px 8px 8px gold;
+  border-radius: 45px;
+  text-align: center;
+  padding: 14px;
+  width: 280px;
+  color: black;
+}

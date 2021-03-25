@@ -4,13 +4,13 @@
 
 session_id();
 
-include 'users.php';
+include 'members.php';
 
-$usersObj = new Users();
+$membersObj = new Members();
 
 
-if (isset($_POST['submit'])) {
-    $usersObj->signupData($_POST);
+if (isset($_POST['submit1'])) {
+    $membersObj->signupData($_POST);
 }
 
 
@@ -58,12 +58,35 @@ if (isset($_POST['submit'])) {
                     </span>
                     <span>
                         <img style="width:116px;position:relative;margin-left:80px;" src="Images\o.png">
+
                     </span>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter Username">
-                        <input class="input100" type="text" name="username">
-                        <span class="focus-input100" data-placeholder="Username"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Enter your first name">
+                        <input class="input100" type="text" name="fname">
+                        <span class="focus-input100" data-placeholder="First Name"></span>
                     </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter last name">
+                        <input class="input100" type="text" name="lname">
+                        <span class="focus-input100" data-placeholder="Last Name"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter your age">
+                        <input class="input100" type="text" name="age">
+                        <span class="focus-input100" data-placeholder="Age"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter your Address">
+                        <input class="input100" type="address" name="address">
+                        <span class="focus-input100" data-placeholder="Address"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter your Date of Birth">
+                        <input class="input100" type="date" name="dob">
+                        <span class="focus-input100" data-placeholder="Date of Birth"></span>
+                    </div>
+
+
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.com">
                         <input class="input100" type="text" name="email">
@@ -81,7 +104,7 @@ if (isset($_POST['submit'])) {
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
-                            <button name="submit" type="submit" value="Submit" class="login100-form-btn">
+                            <button name="submit1" type="submit" value="Submit" class="login100-form-btn">
                                 Sign Up
                             </button>
                         </div>

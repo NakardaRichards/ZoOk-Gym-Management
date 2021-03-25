@@ -14,9 +14,9 @@
     session_start();
 
 
-    include 'users.php';
+    include 'members.php';
 
-    $usersObj = new Users();
+    $membersObj = new Members();
 
 
     header("Location:landingpage.html");

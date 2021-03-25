@@ -1,8 +1,8 @@
 <?php
 
-include 'users.php';
+include 'members.php';
 
-$usersObj = new Users();
+$membersObj = new Members();
 
 
 

@@ -1,11 +1,11 @@
 <?php
-include 'users.php';
+include 'members.php';
 
 
 
 
 
-$usersObj = new Users();
+$membersObj = new Members();
 ?>
 
 
@@ -28,6 +28,7 @@ $usersObj = new Users();
             <strong>
                 <?php echo $_SESSION['username']; ?>
             </strong>
+            from <?php echo $_SESSION['gym_name']; ?>
         </p>
         <p>
             <a href="login.php?logout='1'" style="color: red;">

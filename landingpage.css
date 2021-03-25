@@ -1,11 +1,79 @@
-.butn1 {
-  background-color: cyan;
-  border-radius: 50px;
-  padding: 50px;
+.lbutn {
+  background-color: gold;
+  border-radius: 45px;
+  text-align: center;
+  border: none;
+  padding: 14px;
+  width: 280px;
+  text-decoration: none;
+  margin: 0;
+  position: absolute;
+  color: black;
+}
+
+.lbutn:hover {
+  background-color: gold;
+  border: none;
+  box-shadow: 8px 8px 8px gold;
+  border-radius: 45px;
+  text-align: center;
+  padding: 14px;
+  width: 280px;
+  text-decoration: none;
+  color: white;
+}
+
+.memberSec {
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.adminSec {
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
+
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.trainerSec {
+  margin: 0;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.adbutnSec {
+  margin: 0;
+  position: absolute;
+  top: 400px;
+  left: 40%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.membutnSec {
+  margin: 0;
+  position: absolute;
+  top: 200px;
+  left: 40%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.trainerbutnSec {
+  margin: 0;
+  position: absolute;
+  top: 600px;
+  left: 40%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
