@@ -5,21 +5,6 @@ include 'members.php';
 $membersObj = new Members();
 
 
-
-session_commit();
-
-
-session_name();
-
-session_status();
-
-
-
-
-
-
-
-
 $_SESSION['logged_in'] = time();
 
 
@@ -49,52 +34,6 @@ if (isset($_GET['logout'])) {
 <body>
 
 
-    <?php
-
-
-
-    echo "Session ID: ", (session_id());
-    echo "<br></br>";
-
-
-
-    echo  date('Y m d H:i:s', $_SESSION['logged_in']);
-
-    echo "<br></br>";
-
-
-    echo "<br></br>";
-
-    echo "Session name: ", session_name();
-    echo "<br></br>";
-    echo "Session Status: ", session_status();
-    echo "<br></br>";
-
-
-
-
-
-    echo "<br></br>";
-
-    ?>
-
-
-
-
-    <!--  NOT IMPORTANT -->
-    <?php
-    echo 'Current script owner: ' . get_current_user();
-    ?>
-
-    <!-- <?php
-            $username = getenv('USERNAME') ?: getenv('USER');
-            echo $username;
-            ?> -->
-
-
-    <!--  NOT IMPORTANT -->
-
-
 
 
     <?php if (isset($_SESSION['username'])) : ?>
@@ -104,6 +43,7 @@ if (isset($_GET['logout'])) {
                 <?php echo $_SESSION['username']; ?>
             </strong>
         </p>
+        <?php echo "This session ID is ", $_SESSION['id']; ?>
         <p>
             <a href="login.php?logout='1'" style="color: red;">
                 Click here to Logout

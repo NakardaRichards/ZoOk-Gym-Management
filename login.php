@@ -69,25 +69,15 @@ if (isset($_POST['submit'])) {
                         Welcome back to ZoOk
                     </span>
                     <span>
-                        <img style="width:130px;position:relative;margin-left:80px;" src="Images\o.png">
+                        <a href="landingpage.html">
+                            <img style="width:130px;position:relative;margin-left:80px;" src="Images\o.png">
+                        </a>
                     </span>
 
-                    <!-- <select class="custom-select" id="inputGroupSelect01">
 
-                        <option value="login.php" onclick="handleSelect1()">Member</option>
-                        <option value="adminlogin.php" onclick="handleSelect2()">Admin</option>
-
-
-                    </select> -->
-
-                    <div class=" wrap-input100 validate-input" data-validate="Enter your first name">
-                        <input class="input100" type="text" name="fname">
-                        <span class="focus-input100" data-placeholder="First Name"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Enter last name">
-                        <input class="input100" type="text" name="lname">
-                        <span class="focus-input100" data-placeholder="Last Name"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.com">
+                        <input class="input100" type="text" name="email">
+                        <span class="focus-input100" data-placeholder="Email"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter password">

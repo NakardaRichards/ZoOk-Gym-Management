@@ -57,8 +57,9 @@ if (isset($_POST['submit1'])) {
                         Welcome to ZoOk
                     </span>
                     <span>
-                        <img style="width:116px;position:relative;margin-left:80px;" src="Images\o.png">
-
+                        <a href="landingpage.html">
+                            <img style="width:130px;position:relative;margin-left:80px;" src="Images\o.png">
+                        </a>
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter your first name">

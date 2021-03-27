@@ -1,4 +1,4 @@
-.butn1 {
+.butn {
   background-color: gold;
   border-radius: 45px;
   text-align: center;
@@ -7,7 +7,7 @@
   color: white;
 }
 
-.butn1:hover {
+.butn:hover {
   background-color: gold;
   box-shadow: 8px 8px 8px gold;
   border-radius: 45px;
@@ -16,4 +16,3 @@
   width: 280px;
   color: white;
 }
-

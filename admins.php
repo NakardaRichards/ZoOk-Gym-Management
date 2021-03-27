@@ -9,7 +9,7 @@ class Admins
 
     private $servername = "localhost";
     private $username   = "root";
-    private $password   = "";
+    private $password   = "cenation2";
     private $database   = "content";
     public  $con;
 
@@ -40,13 +40,13 @@ class Admins
 
 
 
+
         $query = "INSERT INTO admins(fname,lname,email,gym_name,pass) VALUES('$fname','$lname','$email','$gym_name','$password')";
         $sql = $this->con->query($query);
 
         if ($sql == true) {
             $_SESSION['username'] = $fname;
             $_SESSION['gym_name'] = $gym_name;
-
 
 
             header("Location:admin.php");
@@ -58,24 +58,29 @@ class Admins
     public function adminloginData($post)
     {
 
-        $fname = $this->con->real_escape_string($_POST['fname']);
-        $lname = $this->con->real_escape_string($_POST['lname']);
-
+        $gym_name = $this->con->real_escape_string($_POST['gym_name']);
         $password = $this->con->real_escape_string($_POST['pass']);
 
-        $query = ("SELECT fname,lname, pass FROM members WHERE fname='$fname' AND lname ='$lname' AND pass = '$password'");
-
-        $sql = $this->con->query($query);
-        if ($sql == true) {
-            $_SESSION['username'] = $fname;
+        $query = "SELECT * FROM admins WHERE gym_name ='$gym_name' && pass ='$password'";
 
 
+        $result = $this->con->query($query);
+        $row = $result->fetch_assoc();
 
-            $_SESSION['username'] = $fname;
 
-            header("Location:home.php");
+
+
+
+        if ($result->num_rows > 0) {
+
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['username'] = $row['fname'];
+            $_SESSION['gym_name'] = $row['gym_name'];
+            header("Location:admin.php");
         } else {
             echo "Login failed!";
         }
     }
+
+
 }

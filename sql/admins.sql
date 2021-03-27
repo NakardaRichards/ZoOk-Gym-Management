@@ -5,4 +5,6 @@ CREATE TABLE admins (
 	email varchar(100) NOT NULL, 
     gym_name varchar(100) NOT NULL, 
 	pass varchar(100) NOT NULL
+
+
 ) 

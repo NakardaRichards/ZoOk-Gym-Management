@@ -14,6 +14,8 @@ if (isset($_POST['submit'])) {
 
 
 
+
+
 ?>
 
 
@@ -44,6 +46,8 @@ if (isset($_POST['submit'])) {
 
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="adminsignup.css">
+
 
 </head>
 
@@ -57,8 +61,9 @@ if (isset($_POST['submit'])) {
                         Welcome to ZoOk
                     </span>
                     <span>
-                        <img style="width:116px;position:relative;margin-left:80px;" src="Images\o.png">
-
+                        <a href="landingpage.html">
+                            <img style="width:130px;position:relative;margin-left:80px;" src="Images\o.png">
+                        </a>
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter your first name">
@@ -93,6 +98,8 @@ if (isset($_POST['submit'])) {
                         <span class="focus-input100" data-placeholder="Password"></span>
                     </div>
 
+
+
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
@@ -101,6 +108,7 @@ if (isset($_POST['submit'])) {
                             </button>
                         </div>
                     </div>
+
 
                     <div class="text-center p-t-115">
                         <span class="txt1">
