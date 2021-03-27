@@ -1,8 +1,8 @@
 <?php
-session_start();
-
-
-
+if (!isset($_SESSION)) {
+    session_start();
+}
+$membersObj = new Members();
 
 class Members
 {
@@ -51,32 +51,7 @@ class Members
             echo "Failed to signup!";
         }
     }
-    // public function adminSignup($post)
-    // {
 
-
-
-    //     $fname = $this->con->real_escape_string($_POST['fname']);
-    //     $lname = $this->con->real_escape_string($_POST['lname']);
-    //     $password = $this->con->real_escape_string($_POST['pass']);
-    //     $email = $this->con->real_escape_string($_POST['email']);
-    //     $gym_name = $this->con->real_escape_string($_POST['gym_name']);
-
-
-
-    //     $query = "INSERT INTO admins(fname,lname,email,gym_name,pass) VALUES('$fname','$lname','$email','$gym_name','$password')";
-    //     $sql = $this->con->query($query);
-
-    //     if ($sql == true) {
-    //         $_SESSION['username'] = $fname;
-
-
-
-    //         header("Location:admin.php");
-    //     } else {
-    //         echo "Failed to signup gym!";
-    //     }
-    // }
 
 
     public function loginData($post)
@@ -101,6 +76,21 @@ class Members
             header("Location:home.php");
         } else {
             echo "Login failed!";
+        }
+    }
+
+    public function displayData()
+    {
+        $query = "SELECT * FROM members";
+        $result = $this->con->query($query);
+        if ($result->num_rows > 0) {
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No Data found";
         }
     }
 }
