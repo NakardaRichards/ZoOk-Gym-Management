@@ -10,6 +10,9 @@
   position: absolute;
   color: black;
 }
+.butn3 {
+  background-color: cyan;
+}
 
 .lbutn:hover {
   background-color: gold;

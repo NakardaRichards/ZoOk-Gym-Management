@@ -3,7 +3,7 @@ function handleClick() {
   window.location.href = "adminsignup.php";
 }
 
-function handleClick() {
+function handleClick1() {
   document.getElementByClass("membutn");
   window.location.href = "signup.php";
 }

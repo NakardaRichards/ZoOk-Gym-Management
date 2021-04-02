@@ -54,7 +54,7 @@ if (isset($_POST['submit1'])) {
             <div class="wrap-login100">
                 <form class="login100-form validate-form" action="signup.php" method="POST">
                     <span class="login100-form-title p-b-26">
-                        Welcome to ZoOk
+                        Welcome to ZoOk 
                     </span>
                     <span>
                         <a href="landingpage.html">

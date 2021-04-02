@@ -1,12 +1,23 @@
 <?php
 include 'admins.php';
 
-// include 'members.php';
+include 'members.php';
 
 
+$membersObj = new Members();
 
 $adminsObj = new Admins();
+
+
+// if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+//     header("location: landingpage.html");
+//     exit;
+// }
+
+
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -44,50 +55,81 @@ $adminsObj = new Admins();
             <?php echo "This session ID is ", $_SESSION['id']; ?>
 
         </p>
+        <h1 style="text-align:center; color:green;">Your Gym's Details</h1>
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>ID</th>
+
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Age</th>
-                    <th>Address</th>
-                    <th>Date of Birth</th>
+                    <th>Location</th>
+                    <th>Gym Name</th>
                     <th>Email</th>
-                    <th>Action</th>
+                    <th>Available Time Slots</th>
+                    <th>Monthly Membership Fee USD</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $members = $membersObj->displayData();
-                foreach ($members as $member) {
+
+                $details = $adminsObj->displayGymDetails($_POST);
+                foreach ($details as $detail) {
                 ?>
                     <tr>
-                        <td><?php echo $member['id'] ?></td>
-                        <td><?php echo $member['fname'] ?></td>
-                        <td><?php echo $member['lname'] ?></td>
-                        <td><?php echo $member['age'] ?></td>
-                        <td><?php echo $member['address'] ?></td>
-                        <td><?php echo $member['dob'] ?></td>
-                        <td><?php echo $member['email'] ?></td>
-                        <!-- <td>
-                            <a href="edit.php?editId=<?php echo $member['id'] ?>" style="color:black">
+
+                        <td><?php echo $detail['fname'] ?></td>
+                        <td><?php echo $detail['lname'] ?></td>
+                        <td><?php echo $detail['location'] ?></td>
+                        <td><?php echo $detail['gym_name'] ?></td>
+                        <td><?php echo $detail['email'] ?></td>
+                        <td><?php echo $detail['time_slot'] ?></td>
+                        <td><?php echo $detail['cost_per_month'] ?></td>
+                        <td>
+                            <a href="adminedit.php?editId=<?php echo $detail['id'] ?>" style="color:gold">
                                 <i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp
-                            <a href="index.php?deleteId=<?php echo $member['id'] ?>" style="color:red">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            <!-- <a href="index.php?deleteId=<?php echo $detail['id'] ?>" style="color:red">
+                                <i class="fa fa-trash" aria-hidden="true"></i> -->
                             </a>
-                        </td> -->
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
 
-        <p>
+        <!-- <p>
             <a href="adminlogin.php?logout='1'" style="color: red;">
                 Click here to Logout
             </a>
 
-        </p>
+        </p> -->
+        <!-- <?php
+                if (isset($_GET['logout'])) {
+                    session_destroy();
+                    unset($_SESSION['username']);
+                    unset($_SESSION['id']);
+                    header("Location:adminlogin.php");
+                }
+                ?> -->
+
+        <?php
+        if (isset($_POST["logout"])) {
+            session_destroy();
+            unset($_SESSION['username']);
+            unset($_SESSION['id']);
+            header("Location:adminlogin.php");
+        }
+        ?>
+        <!-- <button input type="submit" value="logout" class="btn btn-danger" name="logout"> Click here to Logout
+        </button> -->
+
+        <form role="form" method="post">
+            <div class="pull-right-container">
+                <i class="icon fa fa-user">
+                    <input type="submit" value="logout" class="btn btn-danger" name="logout" />
+                </i>
+            </div>
+        </form>
 
     <?php endif ?>
 

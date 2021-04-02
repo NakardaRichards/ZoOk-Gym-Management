@@ -3,7 +3,10 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-include 'members.php';
+
+
+
+
 
 
 class Admins
@@ -38,12 +41,16 @@ class Admins
         $lname = $this->con->real_escape_string($_POST['lname']);
         $password = $this->con->real_escape_string($_POST['pass']);
         $email = $this->con->real_escape_string($_POST['email']);
+        $location = $this->con->real_escape_string($_POST['location']);
+        $time_slot = $this->con->real_escape_string($_POST['time_slot']);
+        $cost_per_month = $this->con->real_escape_string($_POST['cost_per_month']);
         $gym_name = $this->con->real_escape_string($_POST['gym_name']);
 
 
 
 
-        $query = "INSERT INTO admins(fname,lname,email,gym_name,pass) VALUES('$fname','$lname','$email','$gym_name','$password')";
+
+        $query = "INSERT INTO admins(fname,lname,email,gym_name,pass,location,time_slot,cost_per_month) VALUES('$fname','$lname','$email','$gym_name','$password','$location', '$time_slot', '$cost_per_month')";
         $sql = $this->con->query($query);
 
         if ($sql == true) {
@@ -51,9 +58,42 @@ class Admins
             $_SESSION['gym_name'] = $gym_name;
 
 
-            header("Location:admin.php");
+            header("Location:adminlogin.php");
         } else {
             echo "Failed to signup gym!";
+        }
+    }
+    public function updateData($postData)
+    {
+
+        $fname = $this->con->real_escape_string($_POST['ufname']);
+        $lname = $this->con->real_escape_string($_POST['ulname']);
+        $email = $this->con->real_escape_string($_POST['uemail']);
+        $location = $this->con->real_escape_string($_POST['ulocation']);
+        $time_slot = $this->con->real_escape_string($_POST['utime_slot']);
+        $gym_name = $this->con->real_escape_string($_POST['ugym_name']);
+        $cost_per_month = $this->con->real_escape_string($_POST['ucost_per_month']);
+        $id = $this->con->real_escape_string($_POST['id']);
+        if (!empty($id) && !empty($postData)) {
+            $query = "UPDATE admins SET fname = '$fname', lname = '$lname', email = '$email',location = '$location', time_slot = '$time_slot', gym_name = '$gym_name', cost_per_month = '$cost_per_month' WHERE id = '{$_SESSION['id']}' ";
+            $sql = $this->con->query($query);
+            if ($sql == true) {
+                header("Location:admin.php");
+            } else {
+                echo "Data update failed try again!";
+            }
+        }
+    }
+
+    public function displayRecordById($id)
+    {
+        $query = "SELECT * FROM admins WHERE id = '$id' ";
+        $result = $this->con->query($query);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row;
+        } else {
+            echo "Data not found";
         }
     }
 
@@ -69,10 +109,6 @@ class Admins
         $result = $this->con->query($query);
         $row = $result->fetch_assoc();
 
-
-
-
-
         if ($result->num_rows > 0) {
 
             $_SESSION['id'] = $row['id'];
@@ -81,6 +117,44 @@ class Admins
             header("Location:admin.php");
         } else {
             echo "Login failed!";
+        }
+    }
+
+
+    public function displayGymDetails($post)
+    {
+
+
+        $query = "SELECT * FROM admins WHERE id = '{$_SESSION['id']}'";
+        $result = $this->con->query($query);
+        if ($result->num_rows > 0) {
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No Data found";
+        }
+    }
+
+    public function displayGymNames($post)
+    {;
+
+
+
+        $query = "SELECT * FROM admins";
+        $result = $this->con->query($query);
+        $row = $result->fetch_assoc();
+        if ($result->num_rows > 0) {
+
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No Data found";
         }
     }
 }

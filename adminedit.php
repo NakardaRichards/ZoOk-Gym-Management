@@ -5,14 +5,22 @@
 include 'admins.php';
 
 $adminsObj = new Admins();
+include 'members.php';
 
 
-if (isset($_POST['submit'])) {
-    $adminsObj->adminSignup($_POST);
+$membersObj = new Members();
+
+
+if (isset($_GET['editId']) && !empty($_GET['editId'])) {
+    $editId = $_GET['editId'];
+    $editdata = $adminsObj->displayRecordById($editId);
 }
 
 
 
+if (isset($_POST['update'])) {
+    $adminsObj->updateData($_POST);
+}
 
 
 
@@ -24,7 +32,7 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-    <title>Admin Sign-up Component</title>
+    <title>Admin Edit</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -56,9 +64,9 @@ if (isset($_POST['submit'])) {
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" action="adminsignup.php" method="POST">
+                <form class="login100-form validate-form" action="adminedit.php" method="POST">
                     <span class="login100-form-title p-b-26">
-                        Welcome to ZoOk
+                        Update Your Gym's Information
                     </span>
                     <span>
                         <a href="landingpage.html">
@@ -67,74 +75,59 @@ if (isset($_POST['submit'])) {
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter your first name">
-                        <input class="input100" type="text" name="fname">
+                        <input class="input100" type="text" for="fname" name="ufname">
                         <span class="focus-input100" data-placeholder="First Name"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter last name">
-                        <input class="input100" type="text" name="lname">
+                        <input class="input100" type="text" for="lname" name="ulname">
                         <span class="focus-input100" data-placeholder="Last Name"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter Your gym's location">
-                        <input class="input100" type="text" name="location">
+                        <input class="input100" type="text" for="location" name="ulocation">
                         <span class="focus-input100" data-placeholder="Gym's Location"></span>
                     </div>
 
 
 
                     <div class="wrap-input100 validate-input" data-validate="Enter Your gym's Available Time Slots">
-                        <input class="input100" type="text" name="time_slot">
+                        <input class="input100" type="text" for="time_slot" name="utime_slot">
                         <span class="focus-input100" data-placeholder="Gym's Available Time Slots"></span>
                     </div>
 
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter Your Gym's Monthly Membership Fee">
-                        <input class="input100" type="text" name="cost_per_month">
-                        <span class="focus-input100" data-placeholder="Monthly Membership Fee USD"></span>
-                    </div>
-
 
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.com">
-                        <input class="input100" type="text" name="email">
+                        <input class="input100" type="text" for="email" name="uemail">
                         <span class="focus-input100" data-placeholder="Email"></span>
                     </div>
                     <div class="wrap-input100 validate-input" data-validate="Enter Your Gym's name">
-                        <input class="input100" type="text" name="gym_name">
+                        <input class="input100" type="text" for="gym_name" name="ugym_name">
                         <span class="focus-input100" data-placeholder="Gym Name"></span>
                     </div>
 
-
-                    <div class="wrap-input100 validate-input" data-validate="Enter password">
-                        <span class="btn-show-pass">
-                            <i class="zmdi zmdi-eye"></i>
-                        </span>
-                        <input class="input100" type="password" name="pass">
-                        <span class="focus-input100" data-placeholder="Password"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Enter Monthly Fee Cost">
+                        <input class="input100" type="text" for="cost_per_month" name="ucost_per_month">
+                        <span class="focus-input100" data-placeholder="Monthly Membership Fee"></span>
                     </div>
+
 
 
 
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
-                            <button name="submit" type="submit" value="Submit" class="login100-form-btn">
-                                Sign Up Your Gym
+                            <input type="hidden" name="id" value="<?php echo $detail['id']; ?>">
+                            <button name="update" type="submit" value="Update" class="login100-form-btn">
+                                Update Info
                             </button>
                         </div>
                     </div>
 
 
-                    <div class="text-center p-t-115">
-                        <span class="txt1">
-                            Already have an admin account?
-                        </span>
 
-                        <a class="txt2" href="adminlogin.php">
-                            Login
-                        </a>
-                    </div>
                 </form>
             </div>
         </div>
@@ -143,7 +136,8 @@ if (isset($_POST['submit'])) {
 
 
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 
     <script src="vendor/animsition/js/animsition.min.js"></script>

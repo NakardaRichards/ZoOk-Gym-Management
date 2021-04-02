@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-$membersObj = new Members();
+
 
 class Members
 {
@@ -46,7 +46,7 @@ class Members
 
 
 
-            header("Location:home.php");
+            header("Location:login.php");
         } else {
             echo "Failed to signup!";
         }
@@ -72,14 +72,14 @@ class Members
         if ($result->num_rows > 0) {
 
             $_SESSION['id'] = $row['id'];
-            $_SESSION['username'] = $row['fname'];
+            $_SESSION['username'] = $row['fname'] . " " . $row['lname'];
             header("Location:home.php");
         } else {
             echo "Login failed!";
         }
     }
 
-    public function displayData()
+    public function displayData($post)
     {
         $query = "SELECT * FROM members";
         $result = $this->con->query($query);

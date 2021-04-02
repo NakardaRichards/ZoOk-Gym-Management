@@ -1,16 +1,3 @@
-<?php
-
-
-
-
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-    header("location: landingpage.html");
-    exit;
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,10 +5,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trainer Dashboard</title>
+    <title>Gym Dashboard</title>
 </head>
 
 <body>
+    <h1>Gym Dashboard</h1>
 
 </body>
 
