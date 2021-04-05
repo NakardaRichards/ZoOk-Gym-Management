@@ -67,6 +67,7 @@ if (isset($_GET['logout'])) {
         <table class="table table-hover">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Owner</th>
                     <th>Gym Name</th>
                     <th>Location</th>
@@ -83,15 +84,16 @@ if (isset($_GET['logout'])) {
                 foreach ($gym_names as $gym_name) {
                 ?>
                     <tr>
+                        <td><?php echo $gym_name['id'] ?></td>
                         <td><?php echo $gym_name['fname'] . " ", $gym_name['lname'] ?></td>
                         <td><?php echo $gym_name['gym_name'] ?></td>
                         <td><?php echo $gym_name['location'] ?></td>
                         <td><?php echo $gym_name['time_slot'] ?></td>
                         <td><?php echo $gym_name['cost_per_month'] ?></td>
-                        <td> <a style="text-decoration: none;" href="gymDashboard.php">View Gym</a></td>
+                        <td> <a style="text-decoration: none;" href="gymDashboard.php?id=<?php echo $gym_name['id'] ?>">View Gym</a></td>
+                        <a href="apartment.php?id=(variable of the id of the chosen link)">
 
-
-                        <!-- <td>
+                            <!-- <td>
                             <a href="edit.php?editId=<?php echo $member['id'] ?>" style="color:black">
                                 <i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp
                             <a href="index.php?deleteId=<?php echo $member['id'] ?>" style="color:red">

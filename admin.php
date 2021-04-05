@@ -15,6 +15,12 @@ $adminsObj = new Admins();
 // }
 
 
+if (isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
+    $deleteId = $_GET['deleteId'];
+    $adminsObj->deleteTrainer($deleteId);
+}
+
+
 
 ?>
 
@@ -97,6 +103,7 @@ $adminsObj = new Admins();
             </tbody>
         </table>
 
+
         <!-- <p>
             <a href="adminlogin.php?logout='1'" style="color: red;">
                 Click here to Logout
@@ -123,6 +130,57 @@ $adminsObj = new Admins();
         <!-- <button input type="submit" value="logout" class="btn btn-danger" name="logout"> Click here to Logout
         </button> -->
 
+        <div style="text-align: center;">
+            <br>
+            <a href="adminadd.php" class="btn btn-primary" style="text-align:center">Add New Trainers</a>
+        </div>
+
+        <hr>
+        <br>
+        <h1 style="text-align:center; color:green;">Your Current Trainers</h1>
+
+        <table class=" table table-hover">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Phone Number</th>
+                    <th>Hourly Fee</th>
+                    <th>Email</th>
+                    <th>Gym Name</th>
+                    <th>Password</th>
+                    <th>Fire</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+
+                $trainers = $adminsObj->Trainers($_POST);
+                foreach ($trainers as $trainer) {
+                ?>
+                    <tr>
+                        <td><?php echo $trainer['fname'] ?></td>
+                        <td><?php echo $trainer['lname'] ?></td>
+                        <td><?php echo $trainer['age'] ?></td>
+                        <td><?php echo $trainer['phone'] ?></td>
+                        <td><?php echo $trainer['hourly_fee'] ?></td>
+                        <td><?php echo $trainer['email'] ?></td>
+                        <td><?php echo $trainer['gym_name'] ?></td>
+                        <td><?php echo $trainer['pass'] ?></td>
+                        <td>
+                            <!-- <a href="traineredit.php?editId=<?php echo $trainer['id'] ?>" style="color:black">
+                                <i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp -->
+                            <a href="admin.php?deleteId=<?php echo $trainer['id'] ?>" style="color:red">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <br>
+        <br>
         <form role="form" method="post">
             <div class="pull-right-container">
                 <i class="icon fa fa-user">
@@ -132,6 +190,8 @@ $adminsObj = new Admins();
         </form>
 
     <?php endif ?>
+
+
 
 
 </body>

@@ -1,20 +1,15 @@
 <?php
-include 'members.php';
-
-include 'trainers.php';
-session_id();
 
 
 
-$membersObj = new Members();
-$trainersObj = new Trainers();
+include 'admins.php';
+
+$adminsObj = new Admins();
 
 
 if (isset($_POST['submit'])) {
-    $trainersObj->loginData($_POST);
+    $adminsObj->addTrainer($_POST);
 }
-
-
 
 
 
@@ -29,8 +24,7 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-    <title> Trainer Login Component</title>
-
+    <title>Admin Assign Trainers</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -52,10 +46,8 @@ if (isset($_POST['submit'])) {
 
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="adminsignup.css">
 
-    <script src="adminlogin.js">
-    </script>
-    <link rel="stylesheet" href="adminlogin.css">
 
 </head>
 
@@ -64,9 +56,9 @@ if (isset($_POST['submit'])) {
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" action="trainerlogin.php" method="POST">
+                <form class="login100-form validate-form" action="adminadd.php" method="POST">
                     <span class="login100-form-title p-b-26">
-                        Welcome back to ZoOk
+                        Welcome to ZoOk
                     </span>
                     <span>
                         <a href="landingpage.html">
@@ -74,11 +66,45 @@ if (isset($_POST['submit'])) {
                         </a>
                     </span>
 
+                    <div class="wrap-input100 validate-input" data-validate="Enter the trainer's first name">
+                        <input class="input100" type="text" name="fname">
+                        <span class="focus-input100" data-placeholder="First Name"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter the trainer's last name">
+                        <input class="input100" type="text" name="lname">
+                        <span class="focus-input100" data-placeholder="Last Name"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter the trainer's age">
+                        <input class="input100" type="text" name="age">
+                        <span class="focus-input100" data-placeholder="Trainer's Age"></span>
+                    </div>
+
+
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter the trainer's phone number">
+                        <input class="input100" type="text" name="phone">
+                        <span class="focus-input100" data-placeholder="Trainer's phone number"></span>
+                    </div>
+
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter the trainer's hourly fee">
+                        <input class="input100" type="text" name="hourly_fee">
+                        <span class="focus-input100" data-placeholder="Trainer's hourly fee"></span>
+                    </div>
+
+
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.com">
                         <input class="input100" type="text" name="email">
                         <span class="focus-input100" data-placeholder="Email"></span>
                     </div>
+                    <div class="wrap-input100 validate-input" data-validate="Enter Your Gym's name">
+                        <input class="input100" type="text" name="gym_name">
+                        <span class="focus-input100" data-placeholder="Gym Name"></span>
+                    </div>
+
 
                     <div class="wrap-input100 validate-input" data-validate="Enter password">
                         <span class="btn-show-pass">
@@ -89,35 +115,24 @@ if (isset($_POST['submit'])) {
                     </div>
 
 
+
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
                             <button name="submit" type="submit" value="Submit" class="login100-form-btn">
-                                Login
+                                Assign Trainer
                             </button>
                         </div>
                     </div>
-                    <br>
-                    <div>
-                        <button class="butn1" onclick="handleClick()">ADMIN LOGIN</button>
-                    </div>
 
 
-                    <div class="text-center p-t-115">
-                        <span class="txt1">
-                            Don’t have an account?
-                        </span>
 
-                        <a class="txt2" href="signup.php">
-                            Sign Up
-                        </a>
-                    </div>
                 </form>
             </div>
         </div>
-
-
     </div>
+
+
 
 
 
@@ -133,7 +148,5 @@ if (isset($_POST['submit'])) {
     <script src="js/main.js"></script>
 
 </body>
-
-
 
 </html>

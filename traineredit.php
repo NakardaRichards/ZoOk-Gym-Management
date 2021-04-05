@@ -2,23 +2,23 @@
 
 
 
-include 'admins.php';
-
-$adminsObj = new Admins();
-include 'members.php';
 
 
-$membersObj = new Members();
+include 'trainers.php';
 
+
+
+$trainersObj = new Trainers();
 
 if (isset($_GET['editId']) && !empty($_GET['editId'])) {
     $editId = $_GET['editId'];
+    $trainer = $trainersObj->displayTrainerById($editId);
 }
 
 
 
 if (isset($_POST['update'])) {
-    $adminsObj->updateData($_POST);
+    $trainersObj->updateTrainer($_POST);
 }
 
 
@@ -31,7 +31,7 @@ if (isset($_POST['update'])) {
 <html lang="en">
 
 <head>
-    <title>Admin Edit</title>
+    <title>Trainer Edit</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -63,9 +63,9 @@ if (isset($_POST['update'])) {
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" action="adminedit.php" method="POST">
+                <form class="login100-form validate-form" action="traineredit.php" method="POST">
                     <span class="login100-form-title p-b-26">
-                        Update Your Gym's Information
+                        Update Your Info.
                     </span>
                     <span>
                         <a href="landingpage.html">
@@ -73,26 +73,26 @@ if (isset($_POST['update'])) {
                         </a>
                     </span>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter your first name">
+                    <div class="wrap-input100 validate-input" data-validate="Enter trainer's first name">
                         <input class="input100" type="text" for="fname" name="ufname">
-                        <span class="focus-input100" data-placeholder="First Name"></span>
+                        <span class="focus-input100" data-placeholder="Trainer's First Name"></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter last name">
+                    <div class="wrap-input100 validate-input" data-validate="Enter trainer's last name">
                         <input class="input100" type="text" for="lname" name="ulname">
-                        <span class="focus-input100" data-placeholder="Last Name"></span>
+                        <span class="focus-input100" data-placeholder="Trainer's Last Name"></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter Your gym's location">
-                        <input class="input100" type="text" for="location" name="ulocation">
-                        <span class="focus-input100" data-placeholder="Gym's Location"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Enter Your trainer's age">
+                        <input class="input100" type="text" for="age" name="uage">
+                        <span class="focus-input100" data-placeholder="Trainer's Age"></span>
                     </div>
 
 
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter Your gym's Available Time Slots">
-                        <input class="input100" type="text" for="time_slot" name="utime_slot">
-                        <span class="focus-input100" data-placeholder="Gym's Available Time Slots"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Enter Your trainer's phone number">
+                        <input class="input100" type="text" for="phone" name="uphone">
+                        <span class="focus-input100" data-placeholder="Trainer's Phone number"></span>
                     </div>
 
 
@@ -102,15 +102,22 @@ if (isset($_POST['update'])) {
                         <input class="input100" type="text" for="email" name="uemail">
                         <span class="focus-input100" data-placeholder="Email"></span>
                     </div>
-                    <div class="wrap-input100 validate-input" data-validate="Enter Your Gym's name">
-                        <input class="input100" type="text" for="gym_name" name="ugym_name">
-                        <span class="focus-input100" data-placeholder="Gym Name"></span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter Hourly fee">
+                        <input class="input100" type="text" for="hourly_fee" name="uhourly_fee">
+                        <span class="focus-input100" data-placeholder="Hourly Fee"></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter Monthly Fee Cost">
-                        <input class="input100" type="text" for="cost_per_month" name="ucost_per_month">
-                        <span class="focus-input100" data-placeholder="Monthly Membership Fee"></span>
+                    <!-- <div class="wrap-input100 validate-input" data-validate="Enter Your Gym's name">
+                        <input class="input100" type="text" for="gym_name" name="ugym_name">
+                        <span class="focus-input100" data-placeholder="Gym Name"></span>
+                    </div> -->
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter Your trainer's password">
+                        <input class="input100" type="text" for="pass" name="upass">
+                        <span class="focus-input100" data-placeholder="Password"></span>
                     </div>
+
 
 
 
@@ -118,7 +125,7 @@ if (isset($_POST['update'])) {
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
-                            <input type="hidden" name="id" value="<?php echo $detail['id']; ?>">
+                            <input type="hidden" name="id" value="<?php echo $trainer['id']; ?>">
                             <button name="update" type="submit" value="Update" class="login100-form-btn">
                                 Update Info
                             </button>
