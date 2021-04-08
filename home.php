@@ -1,5 +1,6 @@
 <?php
 
+
 include 'members.php';
 include 'admins.php';
 $membersObj = new Members();
@@ -9,11 +10,10 @@ $adminsObj = new Admins();
 // $result = $adminsObj->displayGymNames($_POST);
 
 
-// if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-//     header("location: landingpage.html");
-//     exit;
-// }
-
+if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
+    header("location: landingpage.html");
+    exit;
+}
 
 
 
@@ -51,13 +51,15 @@ if (isset($_GET['logout'])) {
 
 
     <?php if (isset($_SESSION['username'])) : ?>
+
+
         <p>
             Welcome
             <strong>
                 <?php echo $_SESSION['username']; ?>
             </strong>
         </p>
-        <?php echo "This session ID is ", $_SESSION['id']; ?>
+        <!-- <?php echo "This session ID is ", $_SESSION['id']; ?> -->
 
 
         <h1 style="text-align:center; color:green;">Available Gyms</h1>
@@ -80,7 +82,7 @@ if (isset($_GET['logout'])) {
             </thead>
             <tbody>
                 <?php
-                $gym_names = $adminsObj->displayGymNames($_POST);
+                $gym_names = $membersObj->displayGymNames($_POST);
                 foreach ($gym_names as $gym_name) {
                 ?>
                     <tr>
@@ -91,15 +93,9 @@ if (isset($_GET['logout'])) {
                         <td><?php echo $gym_name['time_slot'] ?></td>
                         <td><?php echo $gym_name['cost_per_month'] ?></td>
                         <td> <a style="text-decoration: none;" href="gymDashboard.php?id=<?php echo $gym_name['id'] ?>">View Gym</a></td>
-                        <a href="apartment.php?id=(variable of the id of the chosen link)">
 
-                            <!-- <td>
-                            <a href="edit.php?editId=<?php echo $member['id'] ?>" style="color:black">
-                                <i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp
-                            <a href="index.php?deleteId=<?php echo $member['id'] ?>" style="color:red">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </a>
-                        </td> -->
+
+
                     </tr>
                 <?php } ?>
             </tbody>

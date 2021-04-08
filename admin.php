@@ -9,10 +9,10 @@ $membersObj = new Members();
 $adminsObj = new Admins();
 
 
-// if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-//     header("location: landingpage.html");
-//     exit;
-// }
+if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
+    header("location: landingpage.html");
+    exit;
+}
 
 
 if (isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {

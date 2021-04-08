@@ -149,44 +149,26 @@ class Admins
         }
     }
 
-    public function gymPages($post)
-    {
+    // public function gymPages($post)
+    // {
 
-        $query = "SELECT * FROM admins ";
-        $result = $this->con->query($query);
+    //     $query = "SELECT * FROM admins  ";
+    //     $result = $this->con->query($query);
 
-        if ($result->num_rows > 0) {
+    //     if ($result->num_rows > 0) {
 
-            $data = array();
-            while ($row = $result->fetch_assoc()) {
-                $_SESSION['username'] = $row['fname'];
-                $_SESSION['gym_name'] = $row['gym_name'];
-                $data[] = $row;
-            }
-            return $data;
-        } else {
-            echo "No Data found";
-        }
-    }
-    public function displayGymNames($post)
-    {
+    //         $data = array();
+    //         while ($row = $result->fetch_assoc()) {
+    //             $_SESSION['username'] = $row['fname'];
+    //             $_SESSION['gym_name'] = $row['gym_name'];
+    //             $data[] = $row;
+    //         }
+    //         return $data;
+    //     } else {
+    //         echo "No Data found";
+    //     }
+    // }
 
-
-
-        $query = "SELECT * FROM admins";
-        $result = $this->con->query($query);
-
-        if ($result->num_rows > 0) {
-
-            $data = array();
-            while ($row = $result->fetch_assoc()) {
-                $data[] = $row;
-            }
-            return $data;
-        } else {
-            echo "No Data found";
-        }
-    }
 
 
     public function addTrainer($post)
@@ -204,7 +186,7 @@ class Admins
         if ($sql == true) {
             header("Location:admin.php");
         } else {
-            echo "Data insertion failed try again!";
+            echo "Trainer was not assigned, try again!";
         }
     }
 

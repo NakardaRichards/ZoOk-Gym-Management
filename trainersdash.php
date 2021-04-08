@@ -10,10 +10,10 @@ $membersObj = new Members();
 
 $trainersObj = new Trainers();
 
-// if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-//     header("location: landingpage.html");
-//     exit;
-// }
+if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
+    header("location: landingpage.html");
+    exit;
+}
 
 
 ?>
