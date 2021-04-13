@@ -1,0 +1,12 @@
+.lbutn {
+  background-color: gold;
+  border-radius: 45px;
+  text-align: center;
+  border: none;
+  padding: 14px;
+  width: 280px;
+  text-decoration: none;
+  margin: 0;
+  position: absolute;
+  color: black;
+}
