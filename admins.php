@@ -111,10 +111,10 @@ class Admins
     public function adminloginData($post)
     {
 
-        $gym_name = $this->con->real_escape_string($_POST['gym_name']);
+        $email = $this->con->real_escape_string($_POST['email']);
         $password = $this->con->real_escape_string($_POST['pass']);
 
-        $query = "SELECT * FROM admins WHERE gym_name ='$gym_name' && pass ='$password'";
+        $query = "SELECT * FROM admins WHERE email ='$email' && pass ='$password'";
 
 
         $result = $this->con->query($query);

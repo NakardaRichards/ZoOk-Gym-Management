@@ -109,21 +109,22 @@ class Trainers
             echo "No Data found";
         }
     }
-    // public function TrainersData($post)
-    // {
-    //     $gym_name = $this->con->real_escape_string($_POST['gym_name']);
-    //     $query = "SELECT * FROM trainers WHERE gym_name = '{$_SESSION['gym_name']}'  ";
-    //     $result = $this->con->query($query);
 
-    //     if ($result->num_rows > 0) {
+    public function TrainersData($post)
+    {
+        $gym_name = $this->con->real_escape_string($_POST['gym_name']);
+        $query = "SELECT * FROM trainers WHERE id = '{$_REQUEST['id']}'  ";
+        $result = $this->con->query($query);
 
-    //         $data = array();
-    //         while ($row = $result->fetch_assoc()) {
-    //             $data[] = $row;
-    //         }
-    //         return $data;
-    //     } else {
-    //         echo "No Data found";
-    //     }
-    // }
+        if ($result->num_rows > 0) {
+
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No Data found";
+        }
+    }
 }

@@ -32,7 +32,7 @@ class Gyms
 
     public function gymPages($post)
     {
-        $id = $this->con->real_escape_string($_POST['id']);
+
         $query = "SELECT * FROM admins WHERE id = '{$_REQUEST['id']}'  ";
         $result = $this->con->query($query);
 

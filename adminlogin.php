@@ -12,7 +12,7 @@ $adminsObj = new Admins();
 
 
 
-if (isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $adminsObj->adminloginData($_POST);
 }
 
@@ -76,9 +76,9 @@ if (isset($_POST['submit'])){
 
 
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter Your Gym's name">
-                        <input class="input100" type="text" name="gym_name">
-                        <span class="focus-input100" data-placeholder="Gym Name"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Enter Your email">
+                        <input class="input100" type="text" name="email">
+                        <span class="focus-input100" data-placeholder="Email"></span>
                     </div>
 
 

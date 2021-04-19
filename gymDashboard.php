@@ -1,10 +1,9 @@
 <?php
 
 
-// include 'members.php';
+
 include 'admins.php';
 
-// $membersObj = new Members();
 $adminsObj = new Admins();
 include 'gyms.php';
 $gymsObj = new Gyms();
@@ -31,17 +30,6 @@ if (isset($_POST["logout"])) {
 ?>
 
 
-<!-- <?php
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-            $filename = 'FinalProject/gymDashboard' . $id . ' .php';
-
-            if (file_exists($filename)) {
-                include $filename;
-            }
-        }
-
-        ?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,48 +48,15 @@ if (isset($_POST["logout"])) {
 
 <body>
 
+
+
     <?php
-
-    require_once 'gyms.php';
-
-    // echo "hello" . $_REQUEST['id'];
-
+    $gym_names = $gymsObj->gymPages($_POST);
+    foreach ($gym_names as $gym_name) {
     ?>
-    <!-- <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Owner</th>
-                <th>Gym Name</th>
-                <th>Location</th>
-                <th>Available Time Slots</th>
-                <th>Monthly Membership Fee</th>
 
+    <?php } ?>
 
-
-            </tr>
-        </thead>
-
-        <tbody>
-            <?php
-            $gym_names = $gymsObj->gymPages($_POST);
-            foreach ($gym_names as $gym_name) {
-            ?>
-                <tr>
-                    <td><?php echo $gym_name['id'] ?></td>
-                    <td><?php echo $gym_name['fname'] . " " . $gym_name['lname'] ?></td>
-                    <td><?php echo $gym_name['gym_name'] ?></td>
-                    <td><?php echo $gym_name['location'] ?></td>
-                    <td><?php echo $gym_name['time_slot'] ?></td>
-                    <td><?php echo $gym_name['cost_per_month'] ?></td>
-
-
-
-
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table> -->
     <h1 style="text-align: center;color:gold">
         <?php echo "Welcome to " . $gym_name['gym_name'] . " Owned by " . $gym_name['fname'] . " " . $gym_name['lname']  ?>
     </h1>
@@ -124,9 +79,7 @@ if (isset($_POST["logout"])) {
                 <th>Phone Number</th>
                 <th>Hourly Fee</th>
                 <th>Email</th>
-                <th>Gym Name</th>
-                <th>Password</th>
-                <th>Action</th>
+
             </tr>
         </thead>
         <tbody>
@@ -142,19 +95,19 @@ if (isset($_POST["logout"])) {
                     <td><?php echo $trainer['phone'] ?></td>
                     <td><?php echo $trainer['hourly_fee'] ?></td>
                     <td><?php echo $trainer['email'] ?></td>
-                    <td><?php echo $trainer['gym_name'] ?></td>
-                    <td><?php echo $trainer['pass'] ?></td>
-                    <td>
-                        <a href="traineredit.php?editId=<?php echo $trainer['id'] ?>" style="color:black">
-                            <i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp
 
-                    </td>
+
                 </tr>
             <?php } ?>
         </tbody>
     </table>
 
+
     <button name="submit1" type="submit" value="Submit" class="lbutn">Sign up to this gym</button>
+    <br>
+    <br>
+    <br>
+    <?php echo $trainer['gym_name']; ?>
     <p>
         <a href="login.php?logout='1'" style="color: red;">
             Click here to Logout
@@ -164,8 +117,8 @@ if (isset($_POST["logout"])) {
 
 
 
-
-    <!-- <form role="form" method="post">
+    <!-- 
+    <form role="form" method="post">
         <div class="pull-right-container">
             <i class="icon fa fa-user">
                 <input type="submit" value="logout" class="btn btn-danger" name="logout" />
