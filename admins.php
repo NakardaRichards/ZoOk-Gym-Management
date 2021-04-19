@@ -14,7 +14,7 @@ class Admins
 
     private $servername = "localhost";
     private $username   = "root";
-    private $password   = "cenation2";
+    private $password   = "";
     private $database   = "content";
     public  $con;
 
@@ -78,7 +78,7 @@ class Admins
             $query = "UPDATE admins SET fname = '$fname', lname = '$lname', email = '$email',location = '$location', time_slot = '$time_slot', gym_name = '$gym_name', cost_per_month = '$cost_per_month' WHERE id = '{$_SESSION['id']}' ";
             $sql = $this->con->query($query);
             if ($sql == true) {
-                header("Location:admin.php");
+                header("Location:index.php");
             } else {
                 echo "Data update failed try again!";
             }
@@ -125,7 +125,9 @@ class Admins
             $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $row['fname'];
             $_SESSION['gym_name'] = $row['gym_name'];
-            header("Location:admin.php");
+            header("Location:dashboard/index.php");
+
+
         } else {
             echo "Login failed!";
         }
@@ -184,7 +186,7 @@ class Admins
         $query = "INSERT INTO trainers(fname,lname,age,phone,hourly_fee,email,pass,gym_name) VALUES('$fname','$lname','$age','$phone','$hourly_fee','$email','$password','$gym_name')";
         $sql = $this->con->query($query);
         if ($sql == true) {
-            header("Location:admin.php");
+            header("Location:alltrainers.php");
         } else {
             echo "Trainer was not assigned, try again!";
         }
@@ -195,7 +197,7 @@ class Admins
         $query = "DELETE FROM trainers WHERE id = '$id'";
         $sql = $this->con->query($query);
         if ($sql == true) {
-            header("Location:admin.php");
+            header("Location:dashboard/alltrainers.php");
         } else {
             echo "The trainer was not deleted try again";
         }
