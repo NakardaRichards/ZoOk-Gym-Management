@@ -1,0 +1,28 @@
+.lbutn {
+    background-color: gold;
+    border-radius: 45px;
+    text-align: center;
+    border: none;
+    padding: 14px;
+    width: 280px;
+    text-decoration: none;
+    margin: 0;
+    position: absolute;
+    color: black;
+    margin-top: 80px
+  }
+  .butn3 {
+    background-color: cyan;
+  }
+  
+  .lbutn:hover {
+    background-color: gold;
+    border: none;
+    box-shadow: 8px 8px 8px gold;
+    border-radius: 45px;
+    text-align: center;
+    padding: 14px;
+    width: 280px;
+    text-decoration: none;
+    color: white;
+  }

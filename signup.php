@@ -57,7 +57,7 @@ if (isset($_POST['submit1'])) {
                         Welcome to ZoOk 
                     </span>
                     <span>
-                        <a href="landingpage.html">
+                    <a href="LandingPage.html">
                             <img style="width:130px;position:relative;margin-left:80px;" src="Images\o.png">
                         </a>
                     </span>

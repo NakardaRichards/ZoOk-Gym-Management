@@ -14,7 +14,7 @@ class Admins
 
     private $servername = "localhost";
     private $username   = "root";
-    private $password   = "";
+    private $password   = "cenation2";
     private $database   = "content";
     public  $con;
 
@@ -110,8 +110,8 @@ class Admins
 
     public function adminloginData($post)
     {
-
         $email = $this->con->real_escape_string($_POST['email']);
+     
         $password = $this->con->real_escape_string($_POST['pass']);
 
         $query = "SELECT * FROM admins WHERE email ='$email' && pass ='$password'";
@@ -126,6 +126,7 @@ class Admins
             $_SESSION['username'] = $row['fname'];
             $_SESSION['gym_name'] = $row['gym_name'];
             header("Location:dashboard/index.php");
+            // header("Location:admin.php");
 
 
         } else {

@@ -10,7 +10,7 @@ $adminsObj = new Admins();
 
 
 if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
-    header("location: landingpage.html");
+    header("location: LandingPage.html");
     exit;
 }
 

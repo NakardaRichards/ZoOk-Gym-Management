@@ -3,42 +3,50 @@
 <head>
 <title>gym Landing Page</title>
 	<link rel="stylesheet" href="LandingPage.css" type="text/css">
+	<link rel="stylesheet" href="buttons.css" type="text/css">
+
 </head>
 
 <body>
 
 	<div id="header">
 		<div id="logo">
-			<h3><span>zoOK</span> Gym</h3>
+			<h3>zoOK Gym</h3>
 		</div>
 
 		<nav>
-			<a href="home.php">HOME</a>
+			
 			<a href="signup.php">SIGNUP</a>
-			<a href="trainerlogin.php">LOGIN</a>
+			<a href="login.php">LOGIN</a>
 		</nav>
 	</div>
-    <h1>welcome to zoOK's content management system for gym's</h1>
+	
+	<div class="welcome">
+		<h1	>welcome to zoOK's content management system for gym's</h1>
+	</div>
+   
 	<div id="container">
 		<div id="content-container">
-			<p>      want to login and view your gym or sign up to one?   </p>
 			
-			                    <button>Login/signup </button>
+			<p style="margin-bottom: 80px;">Want to login and view your gym or sign up to one?   </p>
+			
+			
+			<a class="lbutn" href="signup.php">Login/signup </a>
 		</div>
 		
 			<br>
 		
 		<div id="content-container">
-			<p>          want to sign your gym up for clients to find?   </p>
+			<p style="margin-bottom: 80px;">Want to sign your gym up for clients to find?   </p>
 			
-			<button>   Login/signup</button>
+			<a  class="lbutn" href="adminsignup.php">Login/Signup</a>
 			
 			
 		</div>
 		<div id="content-container">
-			<p>   if your a trainer login with the credentials provided by your Gym operator  </p>
+			<p style="margin-bottom: 80px;">If your a trainer login with the credentials provided by your Gym operator  </p>
 			
-			<button>  Go to Login Page</button>
+			<a class="lbutn" href="trainerlogin.php">Go to Login Page</a>
 		</div>
 		
 	</div>
@@ -48,7 +56,7 @@
 			body {
 			  background-image: url('gym.jpg');
 			  background-repeat: no-repeat;
-			  background-attachment: fixed;
+			 
 			  background-size: cover;
 			}
 			</style>
