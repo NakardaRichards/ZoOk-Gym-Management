@@ -1,14 +1,13 @@
+
 <?php include_once('header.php'); ?>
 <?php include_once('menu.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="buttons2.css">
+<link rel="stylesheet" href="textarea.scss">
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>                    
-                    </div>                           
-                </div>
-           
+
+        
             
 
         </p>
@@ -54,5 +53,26 @@
             </tbody>
         </table>
                     </div>
+                 
+                 <div style="text-align: center;">
+                     <h1>Current Post</h1>
+                 </div>
 
+<div class="wrapper">
+  <h1>Post Message on gym page</h1>
+  <textarea name="the-textarea" id="the-textarea" maxlength="300" placeholder="Start Typin..."autofocus></textarea>
+ 
+</div>
+
+                            <div>
+                        <button  class="lbutn" name="submit" type="submit" value="Submit">Post message from gym</button>
+                    </div>
+                 
+
+                    <div>
+                        <button  class="lbutn2" name="submit" type="submit" value="Submit">Edit Post from gym</button>
+                    </div>
+                    
+
+<br>
 <?php include_once('footer.php'); ?>

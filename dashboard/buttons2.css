@@ -1,0 +1,61 @@
+.lbutn {
+    background-color: gold;
+    border-radius: 45px;
+  
+
+    border: none;
+    padding: 14px;
+    width: 280px;
+
+    min-height: 50px;
+    resize: none;
+    text-decoration: none;
+    margin: 20px;
+   
+    position: absolute;
+    color: black;
+    margin-top: 15px
+   
+  }
+
+  .lbutn:hover {
+    background-color: gold;
+    border: none;
+    box-shadow: 8px 8px 8px gold;
+    border-radius: 45px;
+    text-align: center;
+    padding: 14px;
+    width: 280px;
+    text-decoration: none;
+    color: white;
+  }
+  .lbutn2 {
+    background-color: red;
+    border-radius: 45px;
+
+    border: none;
+    padding: 14px;
+    width: 280px;
+
+    min-height: 50px;
+    resize: none;
+    text-decoration: none;
+    margin: 20px;
+    margin-left: 55%;
+    position: absolute;
+    color: black;
+    margin-top: 15px
+  }
+
+  .lbutn2:hover {
+    background-color: red;
+    border: none;
+    box-shadow: 8px 8px 8px red;
+    border-radius: 45px;
+    text-align: center;
+    padding: 14px;
+    width: 280px;
+    text-decoration: none;
+    color: white;
+  }
+  

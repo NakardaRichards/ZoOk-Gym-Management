@@ -11,7 +11,9 @@ $gymsObj = new Gyms();
 include 'trainers.php';
 $trainersObj = new Trainers();
 
-
+if (isset($_POST['submit1'])) {
+    $gymsObj->membership($_POST);
+}
 
 if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     header("location: LandingPage.html");
@@ -68,39 +70,7 @@ if (isset($_POST["logout"])) {
     <h1>Our cost is <?php echo  " " . $gym_name['cost_per_month'] ?></h1>
     <h1>Owner name is <?php echo $gym_name['fname'] . " " . $gym_name['lname']  ?></h1>
 
-    <h1>Our trainers include</h1>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Phone Number</th>
-                <th>Hourly Fee</th>
-                <th>Email</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-
-            $trainers = $trainersObj->TrainersData($_POST);
-            foreach ($trainers as $trainer) {
-            ?>
-                <tr>
-                    <td><?php echo $trainer['fname'] ?></td>
-                    <td><?php echo $trainer['lname'] ?></td>
-                    <td><?php echo $trainer['age'] ?></td>
-                    <td><?php echo $trainer['phone'] ?></td>
-                    <td><?php echo $trainer['hourly_fee'] ?></td>
-                    <td><?php echo $trainer['email'] ?></td>
-
-
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
 
 
     <button name="submit1" type="submit" value="Submit" class="lbutn">Sign up to this gym</button>

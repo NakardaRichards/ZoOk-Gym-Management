@@ -1,8 +1,8 @@
  <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class="sticky-footer bg-white" style=" margin-top: 150px">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; zoOK Gym Management 2021</span>
+                    <div style="padding-top: 10px;" class="copyright text-center my-auto">
+                        <span>Copyright &copy; zoOK Gym Management <script>document.write(new Date().getFullYear());</script></span>
                     </div>
                 </div>
             </footer>

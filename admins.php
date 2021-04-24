@@ -244,4 +244,40 @@ class Admins
     //         }
     //     }
     // }
+    public function postMessage($post)
+    {
+
+
+        $message = $this->con->real_escape_string($_POST['message']);
+        $query = "INSERT INTO admins(message) VALUES('$message')";
+        $sql = $this->con->query($query);
+
+        if ($sql == true) {
+            $_SESSION['message'] = $message;
+           
+
+
+            header("Location:dashboard/index.php");
+        } else {
+            echo "Failed to post message. Try again";
+        }
+    }
+
+    public function displayMessage($post)
+    {
+        $query = "SELECT message FROM admins WHERE message = '{$_SESSION['message']}'";
+        $result = $this->con->query($query);
+
+        if ($result->num_rows > 0) {
+
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No Data found";
+        }
+    }
+
 }

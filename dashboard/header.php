@@ -44,6 +44,7 @@ if (isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    
 
 </head>
 
