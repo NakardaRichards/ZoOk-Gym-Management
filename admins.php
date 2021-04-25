@@ -247,25 +247,24 @@ class Admins
     public function postMessage($post)
     {
 
+        $gym_name = $this->con->real_escape_string($_POST['gym_name']);
 
         $message = $this->con->real_escape_string($_POST['message']);
-        $query = "INSERT INTO admins(message) VALUES('$message')";
+        $query = "UPDATE admins SET message = '$message' WHERE id = '{$_SESSION['id']}' ";
         $sql = $this->con->query($query);
 
         if ($sql == true) {
-            $_SESSION['message'] = $message;
-           
-
-
             header("Location:dashboard/index.php");
         } else {
             echo "Failed to post message. Try again";
         }
     }
 
+
+
     public function displayMessage($post)
     {
-        $query = "SELECT message FROM admins WHERE message = '{$_SESSION['message']}'";
+        $query = "SELECT message FROM admins WHERE id = '{$_SESSION['id']}'";
         $result = $this->con->query($query);
 
         if ($result->num_rows > 0) {
@@ -275,9 +274,12 @@ class Admins
                 $data[] = $row;
             }
             return $data;
+            
         } else {
-            echo "No Data found";
+            echo "No Message found";
         }
     }
+
+   
 
 }

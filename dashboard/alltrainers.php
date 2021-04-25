@@ -18,7 +18,6 @@
                     <th>Phone Number</th>
                     <th>Hourly Fee</th>
                     <th>Email</th>
-                    <th>Gym Name</th>
                     <th>Password</th>
                     <th>Fire</th>
                 </tr>
@@ -36,7 +35,6 @@
                         <td><?php echo $trainer['phone'] ?></td>
                         <td><?php echo $trainer['hourly_fee'] ?></td>
                         <td><?php echo $trainer['email'] ?></td>
-                        <td><?php echo $trainer['gym_name'] ?></td>
                         <td><?php echo $trainer['pass'] ?></td>
                         <td>
                             <!-- <a href="traineredit.php?editId=<?php echo $trainer['id'] ?>" style="color:black">

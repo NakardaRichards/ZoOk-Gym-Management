@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="buttons.css">
 <?php
 
 
@@ -11,9 +12,6 @@ $gymsObj = new Gyms();
 include 'trainers.php';
 $trainersObj = new Trainers();
 
-if (isset($_POST['submit1'])) {
-    $gymsObj->membership($_POST);
-}
 
 if (!isset($_SESSION['id']) || $_SESSION['id'] != true) {
     header("location: LandingPage.html");
@@ -71,13 +69,22 @@ if (isset($_POST["logout"])) {
     <h1>Owner name is <?php echo $gym_name['fname'] . " " . $gym_name['lname']  ?></h1>
 
 
+    <div style="text-align: center;">
+                     <h1 style="color: green;">This gym's current Post</h1>
+     </div>
 
+    <?php echo $gym_name['message']; ?>
 
-    <button name="submit1" type="submit" value="Submit" class="lbutn">Sign up to this gym</button>
     <br>
     <br>
+    <a class="lbutn" href="membership.php">Sign up to this gym</a>
     <br>
+    
     <?php echo $trainer['gym_name']; ?>
+    <br>
+   
+
+
     <p>
         <a href="login.php?logout='1'" style="color: red;">
             Click here to Logout

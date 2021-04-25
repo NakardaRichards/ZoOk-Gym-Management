@@ -1,16 +1,20 @@
 
+
+
 <?php include_once('header.php'); ?>
 <?php include_once('menu.php'); ?>
-<!DOCTYPE html>
-<html lang="en">
+<?php include_once('admins.php'); 
+$adminsObj = new Admins();
+
+if (isset($_POST['submit'])) {
+    $adminsObj->postMessage($_POST);
+}
+
+?>
 <link rel="stylesheet" href="buttons2.css">
 <link rel="stylesheet" href="textarea.scss">
 
 
-        
-            
-
-        </p>
         <h1 style="text-align:center; color:green;">Your Gym's Details</h1>
         <table class="table table-hover">
             <thead>
@@ -55,23 +59,31 @@
                     </div>
                  
                  <div style="text-align: center;">
-                     <h1>Current Post</h1>
+                     <h1 style="color: green;">Current Post</h1>
+                   
+                     <?php
+    $messages = $adminsObj->displayMessage($_POST);
+    foreach ($messages as $message) {
+    ?>
+
+    <?php } ?>
+    <?php echo $message['message']; ?>
                  </div>
+               
 
+<form action="index.php" method="POST">
 <div class="wrapper">
-  <h1>Post Message on gym page</h1>
-  <textarea name="the-textarea" id="the-textarea" maxlength="300" placeholder="Start Typin..."autofocus></textarea>
+  <h1 style="color: green; text-align:center;">Post Message on gym page</h1>
+  <textarea name="message" id="the-textarea"  maxlength="300" placeholder="Start Typin...If you post a blank message the current message will be deleted!"autofocus></textarea>
  
+                    
 </div>
-
-                            <div>
-                        <button  class="lbutn" name="submit" type="submit" value="Submit">Post message from gym</button>
+<div>
+                        <button  class="lbutn" name="submit" type="submit" value="Submit">Post message</button>
                     </div>
-                 
+</form>
 
-                    <div>
-                        <button  class="lbutn2" name="submit" type="submit" value="Submit">Edit Post from gym</button>
-                    </div>
+
                     
 
 <br>

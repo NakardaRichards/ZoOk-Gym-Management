@@ -2,9 +2,10 @@
 include '../admins.php';
 
 include '../members.php';
+include '../memberships.php';
 
 $membersObj = new Members();
-
+$membershipsObj = new Memberships();
 $adminsObj = new Admins();
 
 
@@ -34,7 +35,7 @@ if (isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Master <?php echo $_SESSION['username']; ?></title>
+    <title>Master <?php echo $_SESSION['username']; ?> Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

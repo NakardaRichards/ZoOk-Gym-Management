@@ -60,7 +60,7 @@ if (isset($_GET['logout'])) {
                 <?php echo $_SESSION['username']; ?>
             </strong>
         </p>
-        <!-- <?php echo "This session ID is ", $_SESSION['id']; ?> -->
+      
 
 
         <h1 style="text-align:center; color:green;">Available Gyms</h1>
@@ -101,6 +101,8 @@ if (isset($_GET['logout'])) {
                 <?php } ?>
             </tbody>
         </table>
+
+        
 
         <p>
             <a href="login.php?logout='1'" style="color: red;">
