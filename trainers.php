@@ -62,7 +62,7 @@ class Trainers
             $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $row['fname'];
             $_SESSION['gym_name'] = $row['gym_name'];
-            header("Location:trainersdash.php");
+            header("Location:dashboard/trainersdash.php");
         } else {
             echo "Login failed!";
         }

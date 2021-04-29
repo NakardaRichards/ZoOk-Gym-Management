@@ -42,7 +42,7 @@ if (isset($_POST["logout"])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-    <link rel="stylesheet" href="LandingPage.css">
+
     <title>Gym Page</title>
 </head>
 
@@ -70,19 +70,34 @@ if (isset($_POST["logout"])) {
 
 
     <div style="text-align: center;">
-                     <h1 style="color: green;">This gym's current Post</h1>
-     </div>
+        <h1 style="color: green;">This gym's current Post</h1>
+    </div>
 
     <?php echo $gym_name['message']; ?>
 
     <br>
     <br>
     <a class="lbutn" href="membership.php">Sign up to this gym</a>
+
+
     <br>
-    
-    <?php echo $trainer['gym_name']; ?>
     <br>
-   
+    <br>
+
+    <a class="butn" href="membershipLogin.php">Login</a>
+
+
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+
+
+
+
 
 
     <p>

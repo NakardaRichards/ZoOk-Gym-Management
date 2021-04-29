@@ -113,7 +113,7 @@ class Members
             }
             return $data;
         } else {
-            echo "No Data found";
+            echo "No members found";
         }
     }
 
@@ -137,6 +137,4 @@ class Members
             echo "No Data found";
         }
     }
-
-    
 }

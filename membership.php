@@ -2,17 +2,12 @@
 
 
 
-include 'admins.php';
 
-$adminsObj = new Admins();
-
-include 'gyms.php';
-
-$gymsObj = new Gyms();
-
+include 'memberships.php';
+$membershipsObj = new Memberships();
 
 if (isset($_POST['submit'])) {
-    $gymsObj->membership($_POST);
+    $membershipsObj->membership($_POST);
 }
 
 
@@ -129,7 +124,7 @@ if (isset($_POST['submit'])) {
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
                             <button name="submit" type="submit" value="Submit" class="login100-form-btn">
-                            Complete membership Registration
+                                Complete membership Registration
                             </button>
                         </div>
                     </div>

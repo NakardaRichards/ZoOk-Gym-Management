@@ -111,7 +111,7 @@ class Admins
     public function adminloginData($post)
     {
         $email = $this->con->real_escape_string($_POST['email']);
-     
+
         $password = $this->con->real_escape_string($_POST['pass']);
 
         $query = "SELECT * FROM admins WHERE email ='$email' && pass ='$password'";
@@ -204,6 +204,18 @@ class Admins
         }
     }
 
+    public function deleteMessage($id)
+    {
+        $query = "DELETE FROM message WHERE id = '$id'";
+        $sql = $this->con->query($query);
+        if ($sql == true) {
+            header("Location:dashboard/gymEnquires.php");
+        } else {
+            echo "The message was not deleted try again";
+        }
+    }
+
+
     public function Trainers($post)
     {
         $query = "SELECT * FROM trainers WHERE gym_name = '{$_SESSION['gym_name']}'";
@@ -264,7 +276,7 @@ class Admins
 
     public function displayMessage($post)
     {
-        $query = "SELECT message FROM admins WHERE id = '{$_SESSION['id']}'";
+        $query = "SELECT message FROM admins WHERE gym_name = '{$_SESSION['gym_name']}'";
         $result = $this->con->query($query);
 
         if ($result->num_rows > 0) {
@@ -274,12 +286,41 @@ class Admins
                 $data[] = $row;
             }
             return $data;
-            
         } else {
             echo "No Message found";
         }
     }
 
-   
+    public function adminDetails($post)
+    {
+        $query = "SELECT * FROM admins WHERE gym_name = '{$_SESSION['gym_name']}'";
+        $result = $this->con->query($query);
 
+        if ($result->num_rows > 0) {
+
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No Data found";
+        }
+    }
+    public function viewMessage($post)
+    {
+        $query = "SELECT * FROM message WHERE gym_name = '{$_SESSION['gym_name']}'";
+        $result = $this->con->query($query);
+
+        if ($result->num_rows > 0) {
+
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            echo "No Message found";
+        }
+    }
 }
