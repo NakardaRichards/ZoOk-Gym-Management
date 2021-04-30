@@ -1,4 +1,0 @@
-# InternetAuthoringFinalProject
-
-
-Useless atm

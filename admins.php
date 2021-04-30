@@ -84,28 +84,7 @@ class Admins
         }
     }
 
-    // public function displayRecordById($id)
-    // {
-    //     $query = "SELECT * FROM admins WHERE id = '$id' ";
-    //     $result = $this->con->query($query);
-    //     if ($result->num_rows > 0) {
-    //         $row = $result->fetch_assoc();
-    //         return $row;
-    //     } else {
-    //         echo "Data not found";
-    //     }
-    // }
-    // public function displayTrainerById($id)
-    // {
-    //     $query = "SELECT * FROM trainers WHERE id = '$id' ";
-    //     $result = $this->con->query($query);
-    //     if ($result->num_rows > 0) {
-    //         $row = $result->fetch_assoc();
-    //         return $row;
-    //     } else {
-    //         echo "Data not found";
-    //     }
-    // }
+
 
     public function adminloginData($post)
     {
@@ -153,25 +132,7 @@ class Admins
         }
     }
 
-    // public function gymPages($post)
-    // {
 
-    //     $query = "SELECT * FROM admins  ";
-    //     $result = $this->con->query($query);
-
-    //     if ($result->num_rows > 0) {
-
-    //         $data = array();
-    //         while ($row = $result->fetch_assoc()) {
-    //             $_SESSION['username'] = $row['fname'];
-    //             $_SESSION['gym_name'] = $row['gym_name'];
-    //             $data[] = $row;
-    //         }
-    //         return $data;
-    //     } else {
-    //         echo "No Data found";
-    //     }
-    // }
 
 
 
@@ -234,29 +195,7 @@ class Admins
         }
     }
 
-    // public function updateTrainer($postData)
-    // {
 
-    //     $fname = $this->con->real_escape_string($_POST['ufname']);
-    //     $lname = $this->con->real_escape_string($_POST['ulname']);
-    //     $email = $this->con->real_escape_string($_POST['uemail']);
-    //     $age = $this->con->real_escape_string($_POST['uage']);
-    //     $phone = $this->con->real_escape_string($_POST['uphone']);
-    //     $hourly_fee = $this->con->real_escape_string($_POST['uhourly_fee']);
-    //     $gym_name = $this->con->real_escape_string($_POST['ugym_name']);
-
-    //     $password = $this->con->real_escape_string($_POST['upass']);
-    //     $id = $this->con->real_escape_string($_POST['id']);
-    //     if (!empty($id) && !empty($postData)) {
-    //         $query = "UPDATE trainers SET fname = '$fname', lname = '$lname', email = '$email',age = '$age', phone = '$phone', hourly_fee = '$hourly_fee', gym_name = '$gym_name', pass = '$password' WHERE id = '$id' ";
-    //         $sql = $this->con->query($query);
-    //         if ($sql == true) {
-    //             header("Location:admin.php");
-    //         } else {
-    //             echo "Data update failed try again!";
-    //         }
-    //     }
-    // }
     public function postMessage($post)
     {
 

@@ -5,7 +5,9 @@
 	<title>Landing Page</title>
 	<link rel="stylesheet" href="LandingPage.css" type="text/css">
 	<link rel="stylesheet" href="buttons.css" type="text/css">
-
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="footer.css">
 
 
 </head>
@@ -15,7 +17,7 @@
 	<div id="header">
 		<div id="logo">
 			
-			<a href="LandingPage.html" style="text-decoration: none;">zoOK Gym</a>
+			<a href="LandingPage.html" style="text-decoration: none;">zoOK Gym Management</a>
 		</div>
 
 		<nav>
@@ -30,47 +32,92 @@
 	</div>
 
 	<div class="welcome" style="text-align:center;padding-top:50px;color:gold">
-		<h1>Welcome to zoOK's content management system for gym's</h1>
+		<h1>Welcome to zoOK's gym content management system</h1>
 	</div>
-
-	<div id="container">
-		<div id="content-container">
-
-			<p style="margin-bottom: 80px;">Want to login and view your gym or sign up to one? </p>
+	<br>
 
 
-			<a class="lbutn" href="signup.php">Login/signup </a>
+
+
+
+	<div class="container-fluid">
+		<div class="row">
+	
+		
+	
+		
+	
+		 
+	
+		  <div class="col-sm-4">
+	
+			<div class="card">
+			  <img class="card-img-top img-fluid" src="https://images.unsplash.com/photo-1580086319619-3ed498161c77?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fGZpdG5lc3N8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="Card image cap">
+			  <div class="card-block">
+				<h4 class="card-title" style="text-align: center;">Members</h4>
+				<p class="card-text">Want to login and view your gym or sign up to one? </p>
+			  </div>
+			 
+			  <div class="card-block" style="text-align: center;">
+				<a href="signup.php" class="btn btn-primary">Login/Signup</a>
+			  </div>
+			</div>
+	
+		  </div>
+	
+		  <div class="col-sm-4">
+	
+			<div class="card">
+			  <img class="card-img-top " src="https://images.unsplash.com/photo-1517963628607-235ccdd5476c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGZpdG5lc3N8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60"/>
+			  <div class="card-block">
+				<h4 class="card-title" style="text-align: center;">Admins</h4>
+				<p class="card-text">Want to sign your gym up for clients to find?</p>
+			  </div>
+			 
+			  <div class="card-block" style="text-align: center;"> 
+				<a href="adminsignup.php" class="btn btn-primary" >Login/Signup</a>
+			  </div>
+			</div>
+	
+		  </div>
+	
+		  <div class="col-sm-4">
+	
+			<div class="card">
+			  <img class="card-img-top img-fluid" src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zml0bmVzc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="Card image cap">
+			  <div class="card-block">
+				<h4 class="card-title" style="text-align: center;">Trainers</h4>
+				<p class="card-text">If your a trainer login with the credentials provided by your Gym operator</p>
+			  </div>
+			  
+			  <div class="card-block" style="text-align: center;">
+				<a href="trainerlogin.php" class="btn btn-primary">Login/Signup</a>
+			  </div>
+			</div>
+	
+		  </div>
+	
 		</div>
+	  </div>
 
-		<br>
-
-		<div id="content-container">
-			<p style="margin-bottom: 80px;">Want to sign your gym up for clients to find? </p>
-
-			<a class="lbutn" href="adminsignup.php">Login/Signup</a>
-
-
-		</div>
-		<div id="content-container">
-			<p style="margin-bottom: 80px;">If your a trainer login with the credentials provided by your Gym operator
-			</p>
-
-			<a class="lbutn" href="trainerlogin.php">Go to Login Page</a>
-		</div>
-
-	</div>
 
 	<div id="bg-container">
 		<style>
 			body {
-				background-image: url('land.jpeg');
+				background-image: url('Images/land2.jpg');
 				background-repeat: no-repeat;
 
-				background-size: cover;
+				background-size: 100%;
 			}
 		</style>
 	</div>
 
+	<footer class="footer">
+		<p>
+			Copyright &copy; <script>document.write(new Date().getFullYear());</script> zoOk Gym Management Inc. All rights are reserved
+		</p>
+
+	</footer>
 </body>
 
 </html>

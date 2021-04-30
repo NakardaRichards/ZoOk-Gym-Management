@@ -51,30 +51,6 @@ class Members
             echo "Failed to signup!";
         }
     }
-    // public function gymSignup($post)
-    // {
-    //     $fname = $this->con->real_escape_string($_POST['fname']);
-    //     $lname = $this->con->real_escape_string($_POST['lname']);
-    //     $age = $this->con->real_escape_string($_POST['age']);
-    //     $address = $this->con->real_escape_string($_POST['address']);
-    //     $dob = $this->con->real_escape_string($_POST['dob']);
-    //     $email = $this->con->real_escape_string($_POST['email']);
-    //     $password = $this->con->real_escape_string($_POST['pass']);
-
-    //     $query = "INSERT INTO members(fname,lname,age,address,dob,email,pass) VALUES('$fname','$lname','$age','$address','$dob','$email','$password') ";
-    //     $sql = $this->con->query($query);
-
-    //     if ($sql == true) {
-    //         $_SESSION['username'] = $fname;
-
-
-
-    //         header("Location:login.php");
-    //     } else {
-    //         echo "Failed to signup!";
-    //     }
-    // }
-
 
 
     public function loginData($post)

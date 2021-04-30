@@ -1,0 +1,50 @@
+.AboutContainer {
+    line-height: 60px;
+
+
+}
+
+.header {
+    margin-top: 50px;
+}
+
+.AboutContainer h2 {
+    font-size: 40px;
+    padding: 50px 0;
+
+    text-align: center;
+
+
+}
+
+.AboutContainer h3 {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+
+
+.aboutText {
+
+    text-align: center;
+    margin-top: 20px;
+}
+
+#about {
+    background: rgb(255, 255, 255);
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 1) 60%,
+            rgb(44, 177, 143) 80%,
+            rgba(108, 241, 233, 1) 100%);
+}
