@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2021 at 04:32 AM
+-- Generation Time: Apr 30, 2021 at 04:33 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.0.27
 
@@ -25,20 +25,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Table structure for table `members`
 --
 
-CREATE TABLE `admins` (
-  `id` int(255) NOT NULL,
+CREATE TABLE `members` (
+  `id` int(11) NOT NULL,
   `fname` varchar(100) NOT NULL,
   `lname` varchar(100) NOT NULL,
-  `location` varchar(200) NOT NULL,
-  `time_slot` varchar(400) NOT NULL,
+  `age` int(20) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `dob` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `gym_name` varchar(100) NOT NULL,
-  `cost_per_month` varchar(100) NOT NULL,
   `pass` varchar(100) NOT NULL,
-  `class` varchar(15) NOT NULL DEFAULT 'admins'
+  `class` varchar(15) NOT NULL DEFAULT 'members'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -46,9 +45,9 @@ CREATE TABLE `admins` (
 --
 
 --
--- Indexes for table `admins`
+-- Indexes for table `members`
 --
-ALTER TABLE `admins`
+ALTER TABLE `members`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -56,10 +55,10 @@ ALTER TABLE `admins`
 --
 
 --
--- AUTO_INCREMENT for table `admins`
+-- AUTO_INCREMENT for table `members`
 --
-ALTER TABLE `admins`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `members`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
