@@ -45,12 +45,13 @@ class Admins
         $time_slot = $this->con->real_escape_string($_POST['time_slot']);
         $cost_per_month = $this->con->real_escape_string($_POST['cost_per_month']);
         $gym_name = $this->con->real_escape_string($_POST['gym_name']);
+        $message = $this->con->real_escape_string($_POST['message']);
 
 
 
 
 
-        $query = "INSERT INTO admins(fname,lname,email,gym_name,pass,location,time_slot,cost_per_month) VALUES('$fname','$lname','$email','$gym_name','$password','$location', '$time_slot', '$cost_per_month')";
+        $query = "INSERT INTO admins(fname,lname,email,gym_name,pass,location,time_slot,cost_per_month,message) VALUES('$fname','$lname','$email','$gym_name','$password','$location', '$time_slot', '$cost_per_month','$message')";
         $sql = $this->con->query($query);
 
         if ($sql == true) {
