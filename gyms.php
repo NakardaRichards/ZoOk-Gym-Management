@@ -10,7 +10,7 @@ class Gyms
 
     private $servername = "localhost";
     private $username   = "root";
-    private $password   = "cenation2";
+    private $password   = "";
     private $database   = "content";
     public  $con;
 
