@@ -13,7 +13,7 @@ class Memberships
 
     private $servername = "localhost";
     private $username   = "root";
-    private $password   = "";
+    private $password   = "cenation2";
     private $database   = "content";
     public  $con;
 
@@ -51,7 +51,7 @@ class Memberships
 
             $_SESSION['username'] = $fname;
             $_SESSION['gym_name'] = $gym_name;
-            header("Location:gymEnquires.php");
+            header("Location:dashboard/gymEnquires.php");
         } else {
             echo "failed to insert data!";
         }
