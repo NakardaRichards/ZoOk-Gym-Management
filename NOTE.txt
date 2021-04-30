@@ -1,0 +1,33 @@
+below was removed from LandinPage.html
+	<p>
+		Hello
+	</p>
+
+-----------------
+
+the members and admins table each has a new field named class. the class type willb eused to differentiate the user type when they're viewing the dashboard, so only admin can see admin and only members can see members items etc..
+
+in admins.php inside function public function adminloginData($post), below was added.
+$_SESSION['class'] = $row['class'];
+
+-----------------
+
+members.php 
+ line 100 change from   header("Location:home.php"); to header("Location:dashboard/index.php");
+
+this added on line 99
+ $_SESSION['class'] = $row['class'];
+-----------------
+changes were done to menu.php and index.php inside the dashboard folder
+
+-----------------
+
+-----------------
+
+-----------------
+
+-----------------
+
+-----------------
+
+-----------------

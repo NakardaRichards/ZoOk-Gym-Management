@@ -9,7 +9,7 @@ class Members
 
     private $servername = "localhost";
     private $username   = "root";
-    private $password   = "cenation2";
+    private $password   = "";
     private $database   = "content";
     public  $con;
 
@@ -96,7 +96,8 @@ class Members
 
             $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $row['fname'] . " " . $row['lname'];
-            header("Location:home.php");
+            $_SESSION['class'] = $row['class'];
+            header("Location:dashboard/index.php");
         } else {
             echo "Login failed!";
         }
