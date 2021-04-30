@@ -3,7 +3,7 @@ include '../admins.php';
 
 include '../members.php';
 include '../memberships.php';
-
+error_reporting(E_ERROR | E_PARSE);
 $membersObj = new Members();
 $membershipsObj = new Memberships();
 $adminsObj = new Admins();
