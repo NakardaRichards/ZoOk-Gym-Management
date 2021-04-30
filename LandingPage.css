@@ -1,6 +1,4 @@
-
-
-*{
+* {
 	padding: 0px;
 	margin: 0px;
 	font-family: poppins, sans-serif;
@@ -8,7 +6,7 @@
 	box-sizing: border-box;
 }
 
-#header{
+#header {
 	padding: 20px;
 	width: 100%;
 	background: #FFF;
@@ -16,28 +14,32 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
-	
+
 }
-#header #logo{
+
+#header #logo {
 
 	font-size: 20px;
 
 }
-#header #logo span{
+
+#header #logo span {
 	color: #564FCC;
 }
-#header nav{
+
+#header nav {
 	color: rgb(11, 1, 22);
 }
 
-#header nav a{
+#header nav a {
 	font-size: 14px;
 	text-decoration: none;
 	padding: 10px;
 	text-align: center;
 	color: black;
 }
-#header nav a:last-child{
+
+#header nav a:last-child {
 	color: white;
 	background: #6C63FF;
 	padding: 10px 20px;
@@ -45,11 +47,11 @@
 	border-radius: 30px;
 }
 
-#header nav a:hover{
+#header nav a:hover {
 	opacity: 0.9;
 }
 
-#container{
+#container {
 	overflow: hidden;
 	display: flex;
 	flex-direction: row;
@@ -57,31 +59,37 @@
 	padding-top: 20px;
 	height: 575px;
 }
-#bg-container{
+
+#bg-container {
 	width: 50%;
 }
-#bg-container svg{
+
+#bg-container svg {
 	width: 100%;
 	height: 90%;
 }
-#content-container{
+
+#content-container {
 	width: 30%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
-#content-container h1{
+
+#content-container h1 {
 	color: #564FCC;
 	font-weight: 900;
 	font-size: 80px;
 	line-height: 0.9em;
 	margin-bottom: 30px;
 }
-#content-container p{
+
+#content-container p {
 	line-height: 1.8em;
 	font-weight: 500;
 }
-#content-container button{
+
+#content-container button {
 	border: none;
 	outline: none;
 	color: #FFF;
@@ -92,20 +100,18 @@
 	width: 160px;
 	margin-top: 30px;
 	cursor: pointer;
-	bottom :center;
+	bottom: center;
 }
-#content-container button:hover{
+
+#content-container button:hover {
 	opacity: 0.9;
 }
-#H1{
-	color: #564FCC;
-	text-align: center;
-}
+
 .memberSec {
-  margin: 0;
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+	margin: 0;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }

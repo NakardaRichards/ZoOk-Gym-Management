@@ -60,7 +60,7 @@ if (isset($_GET['logout'])) {
                 <?php echo $_SESSION['username']; ?>
             </strong>
         </p>
-      
+
 
 
         <h1 style="text-align:center; color:green;">Available Gyms</h1>
@@ -93,7 +93,7 @@ if (isset($_GET['logout'])) {
                         <td><?php echo $gym_name['location'] ?></td>
                         <td><?php echo $gym_name['time_slot'] ?></td>
                         <td><?php echo $gym_name['cost_per_month'] ?></td>
-                        <td> <a style="text-decoration: none;" href="gymDashboard.php?id=<?php echo $gym_name['id'] ?>">View Gym</a></td>
+                        <td> <a style="text-decoration: none;" href="dashboard/gymDashboard.php?id=<?php echo $gym_name['id'] ?>">View Gym</a></td>
 
 
 
@@ -102,7 +102,7 @@ if (isset($_GET['logout'])) {
             </tbody>
         </table>
 
-        
+
 
         <p>
             <a href="login.php?logout='1'" style="color: red;">
