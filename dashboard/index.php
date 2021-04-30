@@ -1,6 +1,8 @@
 <?php include_once('header.php'); ?>
 <?php include_once('menu.php'); ?>
-<?php include_once('admins.php');
+<?php include_once('../admins.php'); ?>
+
+<?php
 
 
 $adminsObj = new Admins();
@@ -13,9 +15,6 @@ if (isset($_POST['submit'])) {
 <link rel="stylesheet" href="buttons2.css">
 <link rel="stylesheet" href="textarea.scss">
 
-<?php
-if ($_SESSION['class']=='admins'){
-?>
 
 <h1 style="text-align:center; color:green;">Your Gym's Details</h1>
 <table class="table table-hover">
@@ -50,8 +49,7 @@ if ($_SESSION['class']=='admins'){
                 <td>
                     <a href="adminedit.php?editId=<?php echo $detail['id'] ?>" style="color:red">
                         <i class="fa fa-edit" aria-hidden="true"></i></a>&nbsp
-                    <!-- <a href="index.php?deleteId=<?php echo $detail['id'] ?>" style="color:red">
-                                <i class="fa fa-trash" aria-hidden="true"></i> -->
+
                     </a>
                 </td>
             </tr>
@@ -84,55 +82,10 @@ if ($_SESSION['class']=='admins'){
         <button class="lbutn" name="submit" type="submit" value="Submit">Post message</button>
     </div>
 </form>
-<?php
-
- } //end class admins- only admin users can see 
-
-?>
-
-
-<?php
-if ($_SESSION['class']=='members'){?>
- 
-<h1 style="text-align:center; color:green;">Available Gyms
-</h1>
-<table class="table table-hover">
-    <thead>
-        <tr>
-
-                    <th>ID</th>
-                    <th>Owner</th>
-                    <th>Gym Name</th>
-                    <th>Location</th>
-                    <th>Available Time Slots</th>
-                    <th>Monthly Membership Fee</th>
-        </tr>
-    </thead>
-    <tbody>
-           <?php
-                $gym_names = $membersObj->displayGymNames($_POST);
-                foreach ($gym_names as $gym_name) {
-                ?>
-                    <tr>
-                        <td><?php echo $gym_name['id'] ?></td>
-                        <td><?php echo $gym_name['fname'] . " ", $gym_name['lname'] ?></td>
-                        <td><?php echo $gym_name['gym_name'] ?></td>
-                        <td><?php echo $gym_name['location'] ?></td>
-                        <td><?php echo $gym_name['time_slot'] ?></td>
-                        <td><?php echo $gym_name['cost_per_month'] ?></td>
-                        <td> <a style="text-decoration: none;" href="gymDashboard.php?id=<?php echo $gym_name['id'] ?>">View Gym</a></td>
 
 
 
-                    </tr>
-                <?php } ?>
-    </tbody>
-</table>
-
-<?php
-}
-?>
 
 
 
-<?php include_once('footer.php'); ?>
+< <?php include_once('footer.php'); ?>

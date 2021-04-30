@@ -14,7 +14,7 @@ class Admins
 
     private $servername = "localhost";
     private $username   = "root";
-    private $password   = "";
+    private $password   = "cenation2";
     private $database   = "content";
     public  $con;
 
@@ -56,7 +56,7 @@ class Admins
         if ($sql == true) {
             $_SESSION['username'] = $fname;
             $_SESSION['gym_name'] = $gym_name;
-  
+
             header("Location:adminlogin.php");
         } else {
             echo "Failed to signup gym!";
